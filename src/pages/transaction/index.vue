@@ -16,15 +16,10 @@
 									<span class="iconfont icon-hangqing transaction-hangqing"></span>
 									<span style="font-size: 14px;">行情</span>
 								</div>
-								<div class="optional optional-item-hover" v-if="$store.state.haslogin" :class="currIndex == 'second'?'currIndex':''" @click="optTablebox('','','1','zi')">自选</div>
 								<div class="optional-list">
-									<div class="top">
-										<div class="optional-item-hover" @click="optTablebox(item,index,'1')" :class="currIndex == index?'currIndex':''" v-for="(item, index) in marketNot"
-										 :key="index" v-if="index < 4">{{item.name}}</div>
-									</div>
-									<div class="bottom">
-										<div class="optional-item-hover" @click="optTablebox(item,index,'1')" :class="currIndex == index?'currIndex':''" v-for="(item, index) in marketNot"
-										 :key="index" v-if="index >= 4">{{item.name}}</div>
+									<div class="one-line-list">
+										<div class="optional-item-hover" @click="optTablebox(item,index,'1', item.zi)" :class="currIndex == index?'currIndex':''" v-for="(item, index) in marketNot"
+										 :key="index">{{item.name}}</div>
 									</div>
 								</div>
 							</div>
@@ -36,17 +31,13 @@
 									<span style="font-size: 14px;margin-left: 5px; ">资讯</span>
 								</div>
 								<div class="optional-list">
-									<div class="top">
-										<div class="optional-item-hover" v-for="(item, index) in information" :key="index" v-if="index < 4" @click="optionalTablebox(item,index,'2')"
+									<div class="one-line-list">
+										<div class="optional-item-hover" v-for="(item, index) in information" :key="index" @click="optionalTablebox(item,index,'2')"
 										 :class="optionalIndex == index?'currIndex':''">{{item.name}}</div>
-									</div>
-									<div class="bottom">
-										<div class="optional-item-hover" v-for="(item, index) in information" @click="optionalTablebox(item,index,'2')" :class="optionalIndex == index?'currIndex':''"
-										 :key="index" v-if="index >= 4">{{item.name}}</div>
 									</div>
 								</div>
 							</div>
-							<div class style="margin-left: 15px;display: flex;">
+							<!-- <div class style="margin-left: 15px;display: flex;">
 								<div class="market transaction-red-bg zhibo">
 									<span class="iconfont icon-zhibo-"></span>
 									<span style="font-size: 14px;margin-left: 5px; ">直播</span>
@@ -57,7 +48,7 @@
 										 v-if="index < 4">{{item.name}}</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 
 						</div>
 					</div>
@@ -127,7 +118,7 @@
 									<div>
 										<span class="iconfont icon-shijian date-icon"></span>
 										<!-- <span class="iconfont icon-shijian"></span> -->
-										<span>时间：{{detailsCont.showTime}}</span>
+										<span>时间：{{detailsCont.showTime | timeFormat}}</span>
 									</div>
 									<div>
 										<!-- <span class="iconfont icon-redu"></span> -->
@@ -162,8 +153,7 @@
 								<el-tab-pane label="入仓/出仓" name="zero">
 									<buy-box1 @selectDetailsItem="selectDetailsItem" :cutIndex="cutIndex" :detailsCont="detailsCont" :hasGetNewOrder="hasGetNewOrder" :handleOptions2="handleOptions2" :settingInfo="settingInfo" :code="code"></buy-box1>
 								</el-tab-pane>
-								<el-tab-pane label="融资持仓" name="first">
-									<!-- 我的持仓 -->
+								<!-- <el-tab-pane label="融资持仓" name="first">
 									<hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder" :handleOptions="handleOptions"></hold-position>
 								</el-tab-pane>
 
@@ -172,14 +162,12 @@
 								</el-tab-pane>
 
 								<el-tab-pane label="指数持仓" v-if="$store.state.productSetting.indexDisplay" name="three">
-									<!-- 我的持仓 指数 -->
 									<index-hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder2" :handleOptions="handleOptionsindex"></index-hold-position>
 								</el-tab-pane>
 								<el-tab-pane label="指数平仓" v-if="$store.state.productSetting.indexDisplay" name="fours">
 									<index-sell-box :hasChangeSell="hasChangeSell2" :handleOptions="handleOptionsindex"></index-sell-box>
 								</el-tab-pane>
 								<el-tab-pane label="期货持仓" v-if="$store.state.productSetting.futuresDisplay" name="five">
-									<!-- 我的持仓 期货 -->
 									<futures-hold-position :haslogin="haslogin" :hasGetNewOrder="hasChangeSell3" :handleOptions="handleOptionsFutures"></futures-hold-position>
 								</el-tab-pane>
 								<el-tab-pane label="期货平仓" v-if="$store.state.productSetting.futuresDisplay" name="six">
@@ -187,12 +175,11 @@
 								</el-tab-pane>
 
 								<el-tab-pane label="配资持仓" name="seven" v-if="$store.state.productSetting.fundsDisplay">
-									<!-- 配资持仓 -->
 									<funds-hold-position :haslogin="haslogin" :hasGetNewOrder="hasChangeSell4" :handleOptions="handleOptionsFunds"></funds-hold-position>
 								</el-tab-pane>
 								<el-tab-pane label="配资平仓" name="eight" v-if="$store.state.productSetting.fundsDisplay">
 									<funds-sell-box :hasChangeSell="hasChangeSell4" :handleOptions="handleOptionsFunds"></funds-sell-box>
-								</el-tab-pane>
+								</el-tab-pane> -->
 							</el-tabs>
 							<div v-if="false" class="account-state">
 								<span :class="$store.state.userInfo.allProfitAndLose>0?'red':$store.state.userInfo.allProfitAndLose<0?'green':''">持仓总盈亏：{{$store.state.userInfo.allProfitAndLose}}</span>
@@ -317,14 +304,48 @@
 				// 中间底部新闻列表
 				transactionNewList: [],
 				// 直播
-				direct: [{
-					name: "财神道"
-				}, {
-					name: "王牌健言"
-				}],
+				// direct: [{
+				// 	name: "财神道"
+				// }, {
+				// 	name: "王牌健言"
+				// }],
+				direct: [],
 				// 资讯
 				//  type：新闻类型：1、财经要闻，2、经济数据，3、全球股市，
 				// 4、7*24全球，5、商品资讯，6、上市公司，7、全球央行
+				// information: [{
+				// 		name: "财经要闻",
+				// 		type: 1
+				// 	},
+				// 	{
+				// 		name: "经济数据",
+				// 		type: 2
+				// 	},
+				// 	{
+				// 		name: "全球股市",
+				// 		type: 3
+				// 	},
+				// 	{
+				// 		name: "7*24全球",
+				// 		type: 4
+				// 	},
+				// 	{
+				// 		name: "商品资讯",
+				// 		type: 5
+				// 	},
+				// 	{
+				// 		name: "上市公司",
+				// 		type: 6
+				// 	},
+				// 	{
+				// 		name: "全球央行",
+				// 		type: 7
+				// 	},
+				// 	{
+				// 		name: "精彩视频",
+				// 		type: 8
+				// 	},
+				// ],
 				information: [{
 						name: "财经要闻",
 						type: 1
@@ -353,34 +374,38 @@
 						name: "全球央行",
 						type: 7
 					},
-					{
-						name: "精彩视频",
-						type: 8
-					},
+					// {
+					// 	name: "精彩视频",
+					// 	type: 8
+					// },
 				],
 				// 行情未登录
+				
 				marketNot: [{
 						name: "指数",
 						type: "three"
 					},
 					{
-						name: "股票",
+						name: "沪深", // 股票
 						type: "first"
+					},
+					{
+						name: "创业",
+						type: "start"
 					},
 					{
 						name: "科创",
 						type: "four"
 					},
 					{
-						name: "期货",
-						type: "five"
-					},
-					{
-						name: "创业版",
-						type: "start"
+						name: "自选",
+						type: "",
+						hidden: this.$store.state.haslogin,
+						zi: 'zi',
 					},
 				],
 				// 行情登录
+				//【指数】【沪深】【创业】【科创】【自选】【资讯】
 				market: [{
 						name: "沪深"
 					},
@@ -951,7 +976,16 @@
 		color: #fff;
 		line-height: 30px;
 	}
+	.one-line-list {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    line-height: 40px;
+	}
 .optional-item-hover{
+    border-right: rgba(255, 255, 255, .1) 1px solid;
+    padding: 0 16px;
+		white-space: nowrap;
 			&:hover{
 				background-color: #002346;
 			}

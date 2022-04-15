@@ -350,7 +350,7 @@ body {
   border-bottom: none;
 }
 .black-bg .tab-bg .optional-list {
-  width: 283px;
+  /* width: 283px; */
 }
 .black-bg .tab-bg .transaction-information {
   font-size: 15px;

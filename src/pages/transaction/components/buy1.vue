@@ -1,8 +1,8 @@
 <template>
 	<div style="height: 248px;">
 		<!-- :style="'?'':'margin-bottom: 20px;'" -->
-		<div class="wrapper buy-table" style="display:flex;justify-content: space-between; width: 100%;" :style="activeName1 == 'three'?'margin-bottom: 30px;':activeName1 == 'five'?'margin-bottom: 25px;':''">
-			<div class="" style="margin-bottom: 10px;" v-if="activeName1 == 'first' || activeName1 == 'four' || activeName1 == 'start'">
+		<div class="wrapper buy-table" style="display:flex;justify-content: space-between; width: 100%;">
+			<!-- <div class="" style="margin-bottom: 10px;" v-if="activeName1 == 'first' || activeName1 == 'four' || activeName1 == 'start'">
 				<div  style="width: 50px;display: flex;justify-content: center;margin-top: 20px;align-items: center;flex-direction: column;cursor: pointer;">
 					<div @click="cut('first')" style=" cursor: pointer; padding: 20px 10px;color: #fff;border-radius: 5px;margin-bottom: 2px;"
 					 :class="activeName == 'first'?'current':'currentNone'" class="jiaoyi">
@@ -12,9 +12,9 @@
 						<div style="width: 15px;">分仓交易</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<div style="display: flex;justify-content: space-between;width: 100%;">
-				<el-tabs v-model="activeName" class="buy-box-cont" style="width: 47%;">
+				<el-tabs v-model="activeName" class="buy-box-cont" style="width: 50%;">
 					<!-- 两融交易开始 -->
 					<el-tab-pane name="first">
 						<!-- 买 -->
@@ -42,44 +42,61 @@
 								<div style="display: flex;">
 									<div>
 										<div style="display: flex;position: relative;">
-											<el-form-item prop="buyNum" style="margin-bottom:10px;margin-right: 10px;">
+											<!-- <el-form-item prop="buyNum" style="margin-bottom:10px;margin-right: 10px;">
 												<el-input placeholder="最小买1手" v-model="form.buyNum" class>
 													<el-select v-model="form.buyNum" title="点击选择手数" slot="prepend" placeholder="请选择">
 														<el-option v-for="i in buyNumList" :key="i.value" :label="i.label" :value="i.value"></el-option>
 													</el-select>
-													<!-- <el-select v-model="form.buyNum" title="点击选择手数" slot="prepend" placeholder="请选择">
-														<el-option v-for="i in buyNumList" :key="i.value" :label="i.label" :value="i.value"></el-option>
-													</el-select> -->
 												</el-input>
 												<span style="position: absolute;right: 6px;top: 0px; font-size: 12px;">手</span>
-
-												<!-- <el-form-item label="手数" prop="buyNum" style="margin-bottom:10px;">
-													<el-input placeholder="手数" v-model="form.buyNum" class="input-with-select">
-				
+											</el-form-item> -->
+											<el-form :model="form" label-width="80px" size="mini">
+												<el-form-item label="买入数量" prop="buyNum" style="margin-bottom:10px!important;">
+													<el-input style="width:150px" size="mini" placeholder="买入数量" v-model="form.buyNum" class="input-with-select">
 														<el-button slot="append">手</el-button>
 													</el-input>
-												</el-form-item> -->
-
-											</el-form-item>
-											<el-form-item prop="buyNum" style="margin-bottom:10px;">
+												</el-form-item>
+												<el-form-item label="快速选择" prop="buyNum" style="margin-bottom:10px!important;">
+													<div style="width:240px" class="quick-select">
+														<el-button size="mini" class="quick-btn" v-for="item in cw" :key="item.key" @click="selectCwFun(item.value)">
+															<div :class="selectCw == item.value?'on':''">
+																{{item.label}}
+															</div>
+														</el-button>
+													</div>
+												</el-form-item>
+												
+												<el-form-item label="下单类型" prop="buyNum" style="margin-bottom:10px!important;white-space: nowrap;">
+													<div>
+														<el-button v-for="item in buyTypes" :key="item.key" @click="selectBuyTypeFun(item.value)" :type="form.buyType == item.value  ? 'primary' : ''">
+																{{item.label}}
+														</el-button>
+														<el-input v-if="form.buyType == 2" placeholder="买入价格" style="width:157px" v-model="form.triggerPrice" type="text">
+																<el-button slot="append">元</el-button>
+														</el-input>
+														<!-- <span v-if="form.buyType == 2"><input style="width:100px" v-model="form.triggerPrice" type="text"> 元</span> -->
+													</div>
+												</el-form-item>
+											</el-form>
+											<!-- <el-form-item prop="buyNum" style="margin-bottom:10px;">
 												<el-input placeholder="杠杆" v-model="form.lever" class="input-with-select">
 													<el-select v-model="form.lever" title="点击选择杠杆" slot="prepend" placeholder="请选择">
 														<el-option v-for="i in siteLeverList" :key="i.value" :label="i.label" :value="i.value"></el-option>
 													</el-select>
 												</el-input>
 												<span style="position: absolute;right: 10px;top: 2px; font-size: 12px;">倍</span>
-											</el-form-item>
+											</el-form-item> -->
 										</div>
-										<p class="prompt clearfix">
+										<!-- <p class="prompt clearfix">
 											<el-form-item label="方向" prop="buyType">
 												<el-radio-group v-model="form.buyType">
 													<el-radio label="买涨" value="0"></el-radio>
 													<el-radio label="买跌" value="1"></el-radio>
 												</el-radio-group>
 											</el-form-item>
-										</p>
+										</p> -->
 
-										<el-row class="buy-item" v-if="!isqihuo">
+										<!-- <el-row class="buy-item" v-if="!isqihuo">
 										</el-row>
 										<el-row class="buy-item" v-if="isgupiao">
 											<el-col :span="12">
@@ -91,27 +108,20 @@
 												<span class="price">{{poundage?poundage:0}}</span>
 												<el-tooltip class="item" effect="dark" :content="'总手续费 = 买入手续费（'+ (settingInfo.buyFee*100) + '%）+ 印花税（'+ (settingInfo.dutyFee*100) + '%） + 点差费（'+ (settingSpreadRate.spreadRate*100).toFixed(2) + '%）'"
 												 placement="bottom-end">
-													<!-- <i class="iconfont icon-xiangqing"></i> -->
+													<i class="iconfont icon-xiangqing"></i>
 												</el-tooltip>
 											</el-col>
 										</el-row>
 										<el-row class="buy-item" v-if="isgupiao">
 											<el-col :span="24"></el-col>
-										</el-row>
+										</el-row> -->
 										<el-row class="buy-item" v-if="!isqihuo">
 											<el-col :span="12" v-if="isgupiao">
 												<span class="keyong">需要支付：</span>
-												<span class="price">{{total?total:0}}</span>
+												<span class="price">{{gupiaoTotal?gupiaoTotal:0}}</span>
 											</el-col>
 											<el-col :span="12" v-if="isgupiao">
 												<span class="keyong">可用资金：{{$store.state.userInfo.enableAmt}}元</span>
-											</el-col>
-											<el-col :span="12" v-if="!isgupiao">
-												<span class="keyong">需要支付：</span>
-												<span class="price">{{total?total:0}}</span>
-											</el-col>
-											<el-col :span="12" v-if="!isgupiao">
-												<span class="keyong">可用资金：{{$store.state.userInfo.enableIndexAmt}}元</span>
 											</el-col>
 										</el-row>
 										<el-row class="buy-item" v-if="isqihuo">
@@ -129,10 +139,10 @@
 											</el-col>
 										</el-row>
 										
-										<el-row class="buy-item" style="font-size:10px;">
+										<!-- <el-row class="buy-item" style="font-size:10px;">
 											<el-checkbox class="check-box" v-model="agree" name="type" style="font-size:10px;"></el-checkbox>我同意
 											<a href="javascript:;" @click="tradeDialogVisible = true">《{{siteInfo.tradeAgreeTitle}}》</a>
-										</el-row>
+										</el-row> -->
 										<el-dialog :title="siteInfo.tradeAgreeTitle" class="agree-dialog" :center="true" :visible.sync="tradeDialogVisible"
 										 width="80%">
 											<div class="dialog-iframe">
@@ -171,12 +181,12 @@
 									<span style="font-size:12px;color:#B12525;" :class="detail.hcrate < 0 ?'green price':detail.hcrate > 0 ?'red price':'price'">{{detail.nowPrice}}</span>
 									<span style="font-size:12px;margin-left:10px">涨跌幅：</span>
 									<span style="font-size:12px;color:#B12525;" :class="detail.hcrate < 0 ?'green price':detail.hcrate > 0 ?'red price':'price'">{{Number(detail.hcrate).toFixed(3)}}%</span>
-									<div class="zi " style="margin-left: 5px;width: 23%;display: flex;align-items: center;">
+									<!-- <div class="zi " style="margin-left: 5px;width: 23%;display: flex;align-items: center;">
 										<span style="font-size: 10px;">子:</span>
 										<el-select v-model="form.subaccountNumber" title="点击选择子账户" slot="prepend" placeholder="请选择">
 											<el-option v-for="i in subaccountList" :key="i.subaccountNumber" :label="i.subaccountNumber" :value="i.subaccountNumber"></el-option>
 										</el-select>
-									</div>
+									</div> -->
 								</div>
 								<el-row class="buy-item">
 									<el-col :span="12"></el-col>
@@ -270,12 +280,12 @@
 					</el-tab-pane>
 					<!-- 分仓交易结束 -->
 				</el-tabs>
-				<div style="position: relative; width: 47.5%;margin-right: 10px;">
+				<!-- <div style="position: relative; width: 47.5%;margin-right: 10px;">
 					<buy2 ref="buy2" :activeName="activeName"></buy2>
 					<div class="fage">
 
 					</div>
-				</div>
+				</div> -->
 
 			</div>
 
@@ -306,9 +316,7 @@
 							<div class="showTime">{{item.addTime}}</div>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 		</div>
 
@@ -366,6 +374,10 @@
 				detail: "", // 当前股票的详情
 				activeName: "first",
 				tradeAgreeText: "",
+				buyTypes: [
+					{ label: '市价', value: '1' },
+					{ label: '限价委托', value: '2' }
+				],
 				list: [{
 						name: "卖五",
 						price: "",
@@ -392,6 +404,15 @@
 						volumes: "",
 					},
 				],
+				
+				cw: [
+					{ label: '1/10', value: '10' },
+					{ label: '1/4', value: '4' },
+					{ label: '1/3', value: '3' },
+					{ label: '1/2', value: '2' },
+					{ label: '全仓', value: '1' }
+				],
+				selectCw: '',
 				listbuy: [{
 						name: "买一",
 						price: "",
@@ -425,9 +446,7 @@
 				siteLeverList: [],
 				form: {
 					buyNum: "",
-					buyType: "",
-					lever: "",
-					subaccountNumber: "",
+					buyType: 1,
 				},
 				rule: {
 					buyNum: [{
@@ -460,7 +479,7 @@
 				},
 
 				settingInfo: {}, // 设置信息
-				agree: false, // 协议
+				agree: true, // 协议
 				buyNumber: 0, // 下单次数
 				loadingBtn: false,
 				futuresInfo: {}, // 期货信息
@@ -501,6 +520,13 @@
 					//+ (payfee * this.settingInfo.dutyFee).toFixed(2) + (payfee * this.settingSpreadRate.spreadRate).toFixed(2)
 				} else {
 					return 0;
+				}
+			},
+			gupiaoTotal() {
+				if(this.form.buyType == 1) {
+					return (this.detail.nowPrice * (this.form.buyNum || 0) * 100).toFixed(2)
+				} else {
+					return ((this.form.triggerPrice || 0) * (this.form.buyNum || 0) * 100).toFixed(2)
 				}
 			},
 			total() {
@@ -624,6 +650,15 @@
 					newDate.setTime(timestamp * 1000);
 					item[time] = newDate.toLocaleDateString();
 				});
+			},
+			selectCwFun (value) {
+				this.selectCw = value
+				// tradingAmount: 251842
+				// userAmt: 645759.22
+				// userFuturesAmt: 10856251.8604
+				// userIndexAmt: 20838.9
+				let {userAmt, enableAmt, tradingAmount} = this.$store.state.userInfo
+				this.form.buyNum = Math.floor(userAmt / Number(value) / 100 / this.detail.nowPrice)
 			},
 			async selectDetails(item, index) {
 				// 选择详情
@@ -874,16 +909,16 @@
 							this.$message.error("请输入或选择买入手数");
 							return
 						}
-						if (regisKong.test(this.form.lever)) {
+						// if (regisKong.test(this.form.lever)) {
 
-							this.$message.error("请输入或选择杠杆");
-							return
-						}
-						if (regisKong.test(this.form.buyType)) {
+						// 	this.$message.error("请输入或选择杠杆");
+						// 	return
+						// }
+						// if (regisKong.test(this.form.buyType)) {
 
-							this.$message.error("请选择买卖方向");
-							return
-						}
+						// 	this.$message.error("请选择买卖方向");
+						// 	return
+						// }
 
 						this.loadingBtn = true;
 						if (this.$route.query.code.indexOf("hf_") != -1) {
@@ -957,11 +992,11 @@
 							var gCode = this.$route.query
 							let opts = {
 								stockId: this.detail.id,
-								buyNum: this.form.buyNum ? this.form.buyNum * 100 : 0,
-								buyType: this.form.buyType === "买涨" ? 0 : 1,
-								lever: this.form.lever,
+								buyNum: this.form.buyNum * 100 ? this.form.buyNum * 100 : 0,
+								buyStatus: this.form.buyType,
+								triggerPrice: this.form.buyType == 2 ? this.form.triggerPrice : undefined
 							};
-							let data = await api.buy(opts);
+							let data = await api.buyStock(opts);
 							if (data.status === 0) {
 								this.buyNumber++;
 								this.handleOptions2(this.buyNumber);
@@ -987,6 +1022,9 @@
 						this.loadingBtn = false;
 					}
 				});
+			},
+			selectBuyTypeFun (value) {
+				this.form.buyType = value
 			},
 			onFundsSubmit(formName) {
 				// 先判断是否登录
@@ -1318,5 +1356,15 @@
 			//  height: 300px;
 			margin-top: 20px;
 		}
+	}
+	.quick-select {
+		width: 240px;
+    white-space: nowrap;
+		.quick-btn {
+			// padding: 4px 10px;
+		}
+	}
+	.keyong {
+		white-space: nowrap;
 	}
 </style>

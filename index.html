@@ -10,26 +10,26 @@
 	<link rel="stylesheet" type="text/css" href="./static/translateelement.css"/>
 	<script src="./static/f.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		 function googleTranslateElementInit(){
-				let data = 	new google.translate.TranslateElement(
-				{
-			            //pageLanguage: 'zh-CN',
-			        //这个是你需要翻译的语言，比如你只需要翻译成越南和英语，这里就只写en,vi
-					includedLanguages: 'zh-CN,en',
-					layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-					autoDisplay: false, 
-				}, 
-				'google_translate_element'//触发按钮的id
-			);
-			window.language = data.c
-		}
+		//  function googleTranslateElementInit(){
+		// 		let data = 	new google.translate.TranslateElement(
+		// 		{
+		// 	            //pageLanguage: 'zh-CN',
+		// 	        //这个是你需要翻译的语言，比如你只需要翻译成越南和英语，这里就只写en,vi
+		// 			includedLanguages: 'zh-CN,en',
+		// 			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+		// 			autoDisplay: false, 
+		// 		}, 
+		// 		'google_translate_element'//触发按钮的id
+		// 	);
+		// 	window.language = data.c
+		// }
 	</script>
 	<!-- <script src="https://translate.google.cn/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
     <script type="text/javascript">
       // 步骤一:创建异步对象
       var ajax = new XMLHttpRequest();
       // 步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端
-      ajax.open('get', 'http://sr.nqsoft.net/api/site/getInfo.do');
+      ajax.open('get', 'http://localhost/api/site/getInfo.do');
       // ajax.open('get', 'http://localhost:8070/api/site/getInfo.do');
       // 步骤三:发送请求
       ajax.send();

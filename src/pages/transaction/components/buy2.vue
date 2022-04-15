@@ -359,7 +359,7 @@
 				siteLeverList: [],
 				form: {
 					buyNum: "",
-					buyType: "",
+					buyType: 0,
 					lever: "",
 					subaccountNumber: "",
 				},
@@ -698,15 +698,15 @@
 					return;
 				}
 
-				if (!this.agree) {
-					this.$message.error("阅读并同意注册协议才能出仓");
-					return;
-				}
-				if (!this.userPositionData.positionSn) {
-					this.$message.error("该股票未入仓，不能出仓");
+				// if (!this.agree) {
+				// 	this.$message.error("阅读并同意注册协议才能出仓");
+				// 	return;
+				// }
+				// if (!this.userPositionData.positionSn) {
+				// 	this.$message.error("该股票未入仓，不能出仓");
 
-					return;
-				}
+				// 	return;
+				// }
 				this.loadingBtn = true;
 				let opts = {
 					positionSn: this.userPositionData.positionSn,
@@ -757,17 +757,17 @@
 					this.$message.error("请先登录");
 					return;
 				}
-				if (!this.agree) {
-					this.$message.error("阅读并同意注册协议才能出仓");
-					return;
-				}
+				// if (!this.agree) {
+				// 	this.$message.error("阅读并同意注册协议才能出仓");
+				// 	return;
+				// }
 
 
-				if (!this.userPositionData.positionSn) {
-					this.$message.error("该股票未入仓，不能出仓");
+				// if (!this.userPositionData.positionSn) {
+				// 	this.$message.error("该股票未入仓，不能出仓");
 
-					return;
-				}
+				// 	return;
+				// }
 				this.loadingBtn = true;
 				let opt = {
 					positionSn: this.userPositionData.positionSn,

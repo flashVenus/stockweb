@@ -158,6 +158,10 @@ export function delOption (options) {
 export function buy (options) {
   return post('/user/buy.do', options)
 }
+// 下单
+export function buyStock (options) {
+  return post('/user/buyStock.do', options)
+}
 
 // 用户平仓
 export function sell (options) {
@@ -188,6 +192,16 @@ export function getBankCard (options) {
 // 获取我的持仓单
 export function getOrderList (options) {
   return post('/user/position/list.do', options)
+}
+
+// 获取我的持仓单
+export function getOrderListWt (options) {
+  return post('/user/position/entrustList.do', options)
+}
+
+// 用户平仓委托单
+export function sellWt (options) {
+  return post('/user/entrustCancel.do', options)
 }
 
 // 获取我的自选列表

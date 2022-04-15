@@ -12,17 +12,17 @@
 						<el-menu-item :class="activeIndex === 'home'?'is-active':''" index="home">首页</el-menu-item>
 						<el-menu-item index="stock">股票</el-menu-item>
 						<el-menu-item index="transaction">交易大厅</el-menu-item>
-						<el-menu-item index="product">产品介绍</el-menu-item>
+						<!-- <el-menu-item index="product">产品介绍</el-menu-item>
 						<el-menu-item index="down">软件下载</el-menu-item>
 						<el-menu-item index="introduce">公司简介</el-menu-item>
-						<el-menu-item index="enterprise">企业公告</el-menu-item>
-						<el-menu-item index="/transaction?code=603551" style="color:#000; display: flex;align-items: center;">
+						<el-menu-item index="enterprise">企业公告</el-menu-item> -->
+						<!-- <el-menu-item index="/transaction?code=000001" style="color:#000; display: flex;align-items: center;">
 							<div class="market-data">
 								<img src="../assets/image/dp.png" v-if="this.$store.state.systemColor == 'red-bg'" alt />
 								<img src="../../static/img/gupiao.png" v-if="this.$store.state.systemColor == 'black-bg'" alt="">
 								<span>大盘数据</span>
 							</div>
-						</el-menu-item>
+						</el-menu-item> -->
 						<!-- <el-menu-item index="/transaction?code=300498" style="color:#000; display: flex;align-items: center; ">
 							<div class="stock-show">
 								<img src="../assets/image/gp.png" alt />
@@ -32,12 +32,12 @@
 					</el-menu>
 				</div>
 				<div class="user pull-right main-col" style="width: 100%; display: flex;justify-content: flex-end;padding:14px;font-size: 16px;overflow: hidden;">
-					<a href="javascript:;" size="mini" class="stock-show" @click="onlineService">
-						<!-- <img src="../assets/image/gp.png" alt /> -->
+					<!-- <a href="javascript:;" size="mini" class="stock-show" @click="onlineService">
+						<img src="../assets/image/gp.png" alt />
 						<i class="iconfont icon-kefu"></i>
 						<span>在线客服</span>
-					</a>
-					<a href="javascript:;"  id="google_translate_element" style="width: 40px;"></a>
+					</a> -->
+					<!-- <a href="javascript:;"  id="google_translate_element" style="width: 40px;"></a> -->
 					<!-- <a href="javascript:;" class="language" type="primary" @click="isEn1">En</a> -->
 					<a href="javascript:;" v-if="!this.$store.state.haslogin" class="header-btn" type="primary" @click="toLogin">登 录</a>
 					<a href="javascript:;" v-if="!this.$store.state.haslogin" class="header-btn" type="primary" @click="toRegister">注

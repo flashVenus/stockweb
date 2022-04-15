@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<div id="google_translate_element"  :style="$store.state.haslogin?'top: 18px;right: 273px;':'top: 18px;right: 184px;'"
-		 style="position:absolute;z-index:2000;"></div>
+		<!-- <div id="google_translate_element"  :style="$store.state.haslogin?'top: 18px;right: 273px;':'top: 18px;right: 184px;'"
+		 style="position:absolute;z-index:2000;"></div> -->
 		<router-view />
 		<login></login>
 	</div>
@@ -58,18 +58,18 @@
 				
 			// },500)
 			// this.isEn()
-			var temp =  setInterval(()=>{
+			// var temp =  setInterval(()=>{
 				
-				var code = this.getCookie('googtrans')
-				var dom = document.querySelector('.goog-te-menu-value > span')
-				if(code == '/auto/en'){
-					dom.innerText = '中'
-				}else if(code == '/auto/zh-CN'){
-					dom.innerText = 'En'
-				}else{
-					dom.innerText = 'En'
-				}
-			},500)
+			// 	var code = this.getCookie('googtrans')
+			// 	var dom = document.querySelector('.goog-te-menu-value > span')
+			// 	if(code == '/auto/en'){
+			// 		dom.innerText = '中'
+			// 	}else if(code == '/auto/zh-CN'){
+			// 		dom.innerText = 'En'
+			// 	}else{
+			// 		dom.innerText = 'En'
+			// 	}
+			// },500)
 			
 			
 			

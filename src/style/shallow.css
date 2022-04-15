@@ -227,7 +227,7 @@
   border-bottom: none;
 }
 .red-bg .tab-bg .optional-list {
-  width: 283px;
+  /* width: 283px; */
   background-color: #181818;
 }
 .red-bg .tab-bg .transaction-information {

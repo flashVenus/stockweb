@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/': {
-        target: 'http://sr.nqsoft.net',
+        target: 'http://www.wxljcee.vip',
         secure: false,
         changeOrigin: true,
         pathRewrite: {

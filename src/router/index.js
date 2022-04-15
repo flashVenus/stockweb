@@ -20,6 +20,7 @@ import HoldPosition from '../pages/user/components/transform/holdposition' // �
 import IndexHoldPosition from '../pages/user/components/transform/indexholdposition' // 持仓单 指数
 import FuturesHoldPosition from '../pages/user/components/transform/futuresholdposition' // 持仓单 指数
 import SellOrder from '../pages/user/components/transform/sellorder' // 平仓单
+import WtList from '../pages/user/components/transform/wtList' // 平仓单
 import IndexSellOrder from '../pages/user/components/transform/indexsellorder' // 平仓单 指数
 import FuturesSellOrder from '../pages/user/components/transform/futuressellorder' // 平仓单 指数
 import Bank from '../pages/user/components/save/bank' // 银行卡
@@ -179,6 +180,11 @@ export default new Router({
       name: 'sell',
       meta: { title: '平仓单' },
       component: SellOrder
+    }, {
+      path: '/wtList',
+      name: 'wtList',
+      meta: { title: '平仓单' },
+      component: WtList
     }, {
       path: '/indexsell',
       name: 'indexsell',

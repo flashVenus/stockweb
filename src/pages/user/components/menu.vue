@@ -18,12 +18,9 @@
           </div>
         </el-menu-item>
       </router-link>
-       <router-link to="/xingu" tag="li">
-        <el-menu-item index="2-14"><span class="iconfont icon-yuandianxiao"></span>新股申购</el-menu-item>
-      </router-link>
 
 	<!-- v-if="$store.state.productSetting.fundsDisplay" -->
-      <el-menu-item class="banner-menu" index="disabled" disabled  v-if="$store.state.productSetting.fundsDisplay">
+      <!-- <el-menu-item class="banner-menu" index="disabled" disabled  v-if="$store.state.productSetting.fundsDisplay">
         <i class="iconfont icon-jiaoyi"></i>
         分仓配资
       </el-menu-item>
@@ -41,7 +38,7 @@
       </router-link>
       <router-link to="/fundssellorder" tag="li" v-if="$store.state.productSetting.fundsDisplay">
         <el-menu-item index="2-25"><span class="iconfont icon-yuandianxiao"></span>配资平仓</el-menu-item>
-      </router-link>
+      </router-link> -->
      
 
       <el-menu-item class="banner-menu" index="disabled" disabled>
@@ -49,12 +46,15 @@
         交易
       </el-menu-item>
       <router-link to="/holdposition" tag="li">
-        <el-menu-item index="2-2"><span class="iconfont icon-yuandianxiao"></span>沪深持仓</el-menu-item>
+        <el-menu-item index="2-2"><span class="iconfont icon-yuandianxiao"></span>股票持仓</el-menu-item>
+      </router-link>
+      <router-link to="/wtList" tag="li">
+        <el-menu-item index="2-15"><span class="iconfont icon-yuandianxiao"></span>委托交易</el-menu-item>
       </router-link>
       <router-link to="/sell" tag="li">
-        <el-menu-item index="2-3"><span class="iconfont icon-yuandianxiao"></span>沪深平仓</el-menu-item>
+        <el-menu-item index="2-3"><span class="iconfont icon-yuandianxiao"></span>股票交易记录</el-menu-item>
       </router-link>
-      <router-link v-if="$store.state.productSetting.indexDisplay" to="/indexholdposition" tag="li">
+      <!-- <router-link v-if="$store.state.productSetting.indexDisplay" to="/indexholdposition" tag="li">
         <el-menu-item index="indexhold"><span class="iconfont icon-yuandianxiao"></span>指数持仓</el-menu-item>
       </router-link>
       <router-link v-if="$store.state.productSetting.indexDisplay" to="/indexsell" tag="li">
@@ -65,28 +65,31 @@
       </router-link>
       <router-link v-if="$store.state.productSetting.futuresDisplay" to="/futuressell" tag="li">
         <el-menu-item index="futuressell"><span class="iconfont icon-yuandianxiao"></span>期货平仓</el-menu-item>
+      </router-link> -->
+       <router-link to="/xingu" tag="li">
+        <el-menu-item index="2-14"><span class="iconfont icon-yuandianxiao"></span>新股申购</el-menu-item>
       </router-link>
 
 
       <el-menu-item class="banner-menu" index="disabled" disabled>
         <i class="iconfont icon-zichanshuoming"></i>
-        资产管理
+        银证转账
       </el-menu-item>
       <router-link to="/recharge" tag="li">
-        <el-menu-item index="2-8"><span class="iconfont icon-yuandianxiao"></span>充值</el-menu-item>
+        <el-menu-item index="2-8"><span class="iconfont icon-yuandianxiao"></span>银证转入</el-menu-item>
       </router-link>
       <router-link to="/withdraw" tag="li">
-        <el-menu-item index="2-7"><span class="iconfont icon-yuandianxiao"></span>提现</el-menu-item>
+        <el-menu-item index="2-7"><span class="iconfont icon-yuandianxiao"></span>银证转出</el-menu-item>
       </router-link>
-      <router-link v-if="$store.state.productSetting.indexDisplay || $store.state.productSetting.futuresDisplay"
+      <!-- <router-link v-if="$store.state.productSetting.indexDisplay || $store.state.productSetting.futuresDisplay"
                    to="/changeCash" tag="li">
         <el-menu-item index="change"><span class="iconfont icon-yuandianxiao"></span>资产互转</el-menu-item>
-      </router-link>
+      </router-link> -->
       <router-link to="/rechargelist" tag="li">
-        <el-menu-item index="2-5"><span class="iconfont icon-yuandianxiao"></span>充值记录</el-menu-item>
+        <el-menu-item index="2-5"><span class="iconfont icon-yuandianxiao"></span>银证转入记录</el-menu-item>
       </router-link>
       <router-link to="/withdrawlist" tag="li">
-        <el-menu-item index="2-6"><span class="iconfont icon-yuandianxiao"></span>提现记录</el-menu-item>
+        <el-menu-item index="2-6"><span class="iconfont icon-yuandianxiao"></span>银证转出记录</el-menu-item>
       </router-link>
       <router-link to="/detaillist" tag="li">
         <el-menu-item index="2-4"><span class="iconfont icon-yuandianxiao"></span>资金明细</el-menu-item>
@@ -106,9 +109,9 @@
       <router-link to="/changepwd" tag="li">
         <el-menu-item index="2-11"><span class="iconfont icon-yuandianxiao"></span>修改密码</el-menu-item>
       </router-link>
-      <el-menu-item class="book" index="2-12">
+      <!-- <el-menu-item class="book" index="2-12">
         <a style="margin-left:-40px;"  href="javascript:;" @click="tradeDialogVisible = true">{{$store.state.siteInfo.tradeAgreeTitle}}</a>
-      </el-menu-item>
+      </el-menu-item> -->
     </el-menu>
     <el-dialog
       :title="$store.state.siteInfo.tradeAgreeTitle"

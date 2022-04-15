@@ -36,7 +36,7 @@
                             <div>
                               <span class="iconfont icon-shijian date-icon"></span>
                               <!-- <span class="iconfont icon-shijian"></span> -->
-                              <span>时间：{{detailsCont.showTime}}</span>
+                              <span>时间：{{detailsCont.showTime | timeFormat}}111</span>
                             </div>
                             <div>
                               <!-- <span class="iconfont icon-redu"></span> -->
