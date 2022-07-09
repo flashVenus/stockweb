@@ -46,7 +46,7 @@
 			<!-- <div class="lobby">
         <div class="lobbtn" @click="toJiaoyi"><i class="iconfont icon-gupiao"></i><i>进入交易大厅</i></div>
       </div> -->
-			<div class="aboutus">
+			<div class="aboutus" style="display: none;">
 				<layout>
 					<div slot='left'>
 						<div class="hongtiao"></div>
@@ -63,7 +63,7 @@
 					</div>
 				</layout>
 			</div>
-			<div class="banner">
+			<div class="banner" style="display: none;">
 				<div class="cot">
 					<div class="empt"></div>
 					<div class="detail">
@@ -88,16 +88,15 @@
 								<div class="not_l" style="width:35px;overflow: hidden;"><span class="iconfont icon-kaihuhedui"></span>开户须知</div>
 								<div class="not_r">
 									<ul>
-										<li>开设真实账户（注册会员）之前一定要认真阅读和查看本公司的《交易规则》和《风险揭示与告知》。</li>
-										<li>客户具备的开户条件：年满十八周岁、具有完全民事行为能力的公民。客户须以真实的、合法的身份开户并保证资金来源的合法性。</li>
+										<li>开立证券账户之前一定要认真阅读和查看本公司的《交易规则》和《风险揭示与告知》。</li>
+										<li>用户具备的开户条件：年满十八周岁、具有完全民事行为能力的公民。客户须以真实的、合法的身份开户并保证资金来源的合法性。</li>
 										<li>客户自备用于相互转账的银行卡（开通网上银行），客户应妥善保管好银行密码及交易密码，并定期更换密码，不得向任何人泄露密码。</li>
-										<li>自行注册，并遵循《一人一个账号规则》。</li>
-										<li>正式账户充值成功后即可开始交易。</li>
+										<li>证券账户银证转入资金即可开始交易。</li>
 									</ul>
 								</div>
 							</div>
 						</div>
-						<div slot="right">
+						<div slot="right" style="visibility:hidden">
 							<div class="s_right">
 								<div class="not_l" style="width:35px;overflow: hidden;"><span class="iconfont icon-kaihuhedui"></span>操盘须知</div>
 								<div class="not_r">
@@ -272,7 +271,7 @@
 				var marquee = this.$refs.marqueeBox;
 				console.log(marquee)
 				var disx = 0; // 位移距离
-				// console.log(width) 
+				// console.log(width)
 				var allwidth = 0
 				for (var i = 0; i < this.noticeList.length; i++) {
 					allwidth += this.$refs.marquee[i].getBoundingClientRect().width
@@ -283,7 +282,7 @@
 						disx = 0; // 如果位移超过文字宽度，则回到起点  marquee-list的margin值
 					}
 					// console.log(disx,'disx')
-					// marquee.style.transform = 
+					// marquee.style.transform =
 					marquee.style.transform = 'translateX(' + disx + 'px)'
 				}, 30) //滚动速度
 			},
