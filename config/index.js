@@ -12,7 +12,9 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/': {
-        target: 'http://www.wxljcee.vip',
+        // target: 'http://www.wxljcee.vip',
+        // target: 'http://localhost:8099',
+        target: 'https://www.wxljcee.vip',
         secure: false,
         changeOrigin: true,
         pathRewrite: {
