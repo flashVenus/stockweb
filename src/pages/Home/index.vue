@@ -9,7 +9,7 @@
 					<backdrop>
 						<div class="bgdcontent">
 							<div class="text">
-								<div class="en">PROSPERITY INVESTMENT HOLDINGS LIMITED</div>
+								<div class="en">CHINALIN CAPITAL</div>
 								<div class="company">{{siteInfo.siteName}}</div>
 								<div class="brief">{{siteInfo.siteIntro}}</div>
 							</div>
@@ -102,8 +102,7 @@
 								<div class="not_l" style="width:35px;overflow: hidden;"><span class="iconfont icon-kaihuhedui"></span>操盘须知</div>
 								<div class="not_r">
 									<ul>
-										<li>您投资的 本金 最低 1 元;</li>
-										<li>申请资金后，随时买进卖出;</li>
+										<li>您投资的 本金 最低 一万 元;</li>
 										<li>账户匹配后，当天即可交易;</li>
 										<li>当资金接近亏损强平预警线时，需尽快补足保证金；如未及时补仓，可能会被风控系统强平;</li>
 										<li>当操盘资金低于平仓线下时，我们有权将您的账户实行止损操作;</li>
@@ -272,7 +271,7 @@
 				var marquee = this.$refs.marqueeBox;
 				console.log(marquee)
 				var disx = 0; // 位移距离
-				// console.log(width) 
+				// console.log(width)
 				var allwidth = 0
 				for (var i = 0; i < this.noticeList.length; i++) {
 					allwidth += this.$refs.marquee[i].getBoundingClientRect().width
@@ -283,7 +282,7 @@
 						disx = 0; // 如果位移超过文字宽度，则回到起点  marquee-list的margin值
 					}
 					// console.log(disx,'disx')
-					// marquee.style.transform = 
+					// marquee.style.transform =
 					marquee.style.transform = 'translateX(' + disx + 'px)'
 				}, 30) //滚动速度
 			},

@@ -4,7 +4,7 @@
          <div class="cot">
              <div class="left">
                  <div><span class="iconfont icon-dianhua"></span>联系方式: {{siteInfo.sitePhone}}</div>
-                 <div><span class="iconfont icon-qq"></span>QQ号:{{siteInfo.siteQq}}</div>
+<!--                 <div><span class="iconfont icon-qq"></span>QQ号:{{siteInfo.siteQq}}</div>-->
                  <div><span class="iconfont icon-ziyuan"></span>邮箱: {{siteInfo.siteEmailTo}}</div>
              </div>
              <div class="mid">
@@ -15,15 +15,15 @@
                  <div class="app">官方App下载</div>
                  <div class="pic">
                      <div class="pic_l">
-                         <div class="adrpic"><img :src="siteInfo.siteAndroidImg" alt=""></div>
+                         <div class="adrpic"><img src="../../static/newimg/app_download_url.jpg" alt=""></div>
                          <div class="adrtext">官方App下载（安卓）</div>
                      </div>
                      <div class="pic_r">
-                         <div class="iospic"><img :src="siteInfo.siteIosImg" alt=""></div>
+                         <div class="iospic"><img src="../../static/newimg/app_download_url.jpg" alt=""></div>
                          <div class="iostext">官方App下载（苹果）</div>
                      </div>
                  </div>
-                 <div class="pc"><span class="iconfont icon-pc"></span>官方PC下载</div>
+<!--                 <div class="pc"><span class="iconfont icon-pc"></span>官方PC下载</div>-->
              </div>
          </div>
          <div class="fot">
