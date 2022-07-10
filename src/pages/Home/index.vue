@@ -46,8 +46,8 @@
 			<!-- <div class="lobby">
         <div class="lobbtn" @click="toJiaoyi"><i class="iconfont icon-gupiao"></i><i>进入交易大厅</i></div>
       </div> -->
-			<div class="aboutus" style="display: none;">
-				<layout>
+			<div class="aboutus" style="">
+				<layout style="">
 					<div slot='left'>
 						<div class="hongtiao"></div>
 						<div class="tit">
@@ -63,7 +63,7 @@
 					</div>
 				</layout>
 			</div>
-			<div class="banner" style="display: none;">
+			<div class="banner" style="display: none">
 				<div class="cot">
 					<div class="empt"></div>
 					<div class="detail">
