@@ -9,7 +9,7 @@
              </div>
              <div class="mid">
                  <div class="text">风险提示：所有投资都存在风险。任何一支证券或金融产品的历史数据都不能保证其未来的表现及回报。虽然投资多样化可以帮助分散风险，但是并不能在市场低迷时确保您获益或防止您损失。投资证券或金融产品总会存在潜在的亏损可能。投资者在进行投资前需考虑自身的投资目标及风险承受能力。</div>
-                 <div class="copyright">© 2020 嘉进投资国际有限公司 All rights reserved  嘉進投资（国际）投资管理公司</div>
+                 <div class="copyright">© 2020 国融证券股份有限公司 All rights reserved  国融证券股份有限公司</div>
              </div>
              <div class="right">
                  <div class="app">官方App下载</div>
