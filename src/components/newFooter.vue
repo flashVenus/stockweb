@@ -15,11 +15,11 @@
                  <div class="app">官方App下载</div>
                  <div class="pic">
                      <div class="pic_l">
-                         <div class="adrpic"><img src="../../static/newimg/app_download_url.jpg" alt=""></div>
+                         <div class="adrpic"><img :src="siteInfo.siteAndroidImg" alt=""></div>
                          <div class="adrtext">官方App下载（安卓）</div>
                      </div>
                      <div class="pic_r">
-                         <div class="iospic"><img src="../../static/newimg/app_download_url.jpg" alt=""></div>
+                         <div class="iospic"><img :src="siteInfo.siteIosImg" alt=""></div>
                          <div class="iostext">官方App下载（苹果）</div>
                      </div>
                  </div>
