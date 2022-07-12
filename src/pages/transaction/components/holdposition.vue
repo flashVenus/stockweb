@@ -100,10 +100,10 @@
          label="总市值">
        </el-table-column> -->
         <el-table-column
-          label="平仓">
+          label="卖出">
           <template slot-scope="scope">
-            <el-button class="btn-sell" plain title="我要平仓" size="mini" @click="toSell(scope.row)"><i
-              class="iconfont icon-chakan"></i>平仓
+            <el-button class="btn-sell" plain title="我要卖出" size="mini" @click="toSell(scope.row)"><i
+              class="iconfont icon-chakan"></i>卖出
             </el-button>
           </template>
         </el-table-column>

@@ -31,7 +31,7 @@
 									<span style="font-size:12px;color:#B12525;" :class="detail.hcrate < 0 ?'green price':detail.hcrate > 0 ?'red price':'price'">{{detail.nowPrice}}</span>
 									<span style="font-size:12px;margin-left:10px">涨跌幅：</span>
 									<span style="font-size:12px;color:#B12525;" :class="detail.hcrate < 0 ?'green price':detail.hcrate > 0 ?'red price':'price'">{{Number(detail.hcrate).toFixed(3)}}%</span>
-									
+
 								</div>
 
 
@@ -65,7 +65,7 @@
 														</el-button>
 													</div>
 												</el-form-item>
-												
+
 												<el-form-item label="下单类型" prop="buyNum" style="margin-bottom:10px!important;white-space: nowrap;">
 													<div>
 														<el-button v-for="item in buyTypes" :key="item.key" @click="selectBuyTypeFun(item.value)" :type="form.buyType == item.value  ? 'primary' : ''">
@@ -138,7 +138,7 @@
 											</p>
 											</el-col>
 										</el-row>
-										
+
 										<!-- <el-row class="buy-item" style="font-size:10px;">
 											<el-checkbox class="check-box" v-model="agree" name="type" style="font-size:10px;"></el-checkbox>我同意
 											<a href="javascript:;" @click="tradeDialogVisible = true">《{{siteInfo.tradeAgreeTitle}}》</a>
@@ -159,7 +159,7 @@
 								</div>
 							</el-form>
 							<div>
-								<el-button :loading="loadingBtn" class="buy-button ru" type="primary" @click="onSubmit('ruleForm')">入仓</el-button>
+								<el-button :loading="loadingBtn" class="buy-button ru" type="primary" @click="onSubmit('ruleForm')">买入</el-button>
 							</div>
 						</div>
 					</el-tab-pane>
@@ -274,7 +274,7 @@
 								</div>
 							</el-form>
 							<div>
-								<el-button :loading="loadingBtn" class="buy-button ru" type="primary" @click="onFundsSubmit('ruleForm1')">入仓</el-button>
+								<el-button :loading="loadingBtn" class="buy-button ru" type="primary" @click="onFundsSubmit('ruleForm1')">买入</el-button>
 							</div>
 						</div>
 					</el-tab-pane>
@@ -365,7 +365,7 @@
 		data() {
 			return {
 				siteInfo:{
-					
+
 				},
 				activeName1:'first',
 				tabPosition: "left",
@@ -404,7 +404,7 @@
 						volumes: "",
 					},
 				],
-				
+
 				cw: [
 					{ label: '1/10', value: '10' },
 					{ label: '1/4', value: '4' },
@@ -505,7 +505,7 @@
 					clearInterval(this.timer);
 				}
 			},
-			
+
 		},
 		computed: {
 			poundage() {
@@ -628,7 +628,7 @@
 					if (-disx >= width) {
 						disx = 10; // 如果位移超过文字宽度，则回到起点  marquee-list的margin值
 					}
-					// marquee.style.transform = 
+					// marquee.style.transform =
 					marquee.style.transform = 'translateX(' + disx + 'px)'
 				}, 30) //滚动速度
 			},
@@ -705,7 +705,7 @@
 							this.$store.commit('setUserPositionData', data.data.list[0])
 						}
 					})
-					
+
 				}else{
 					api.findUserFundsPositionByCode({
 						fundsCode:code
@@ -715,7 +715,7 @@
 						}
 					})
 				}
-				
+
 			},
 			async queryExchange() {
 				// 基币汇率
@@ -936,8 +936,8 @@
 								// this.handleOptions3(this.buyNumber)
 								this.$message.success(data.data);
 								this.getUserInfo(); // 刷新
-								
-								
+
+
 								api.findUserFuturesPositionByCode({
 									futuresGid: qCode.code
 								}).then(data=>{
@@ -945,9 +945,9 @@
 										this.$store.commit('setUserPositionData', data.data.list[0])
 									}
 								})
-								
-								
-								
+
+
+
 							} else {
 								this.$message.error(data.msg);
 							}
@@ -970,9 +970,9 @@
 								// this.handleOptions2(this.buyNumber)
 								this.$message.success(data.data);
 								this.getUserInfo(); // 刷新
-								
-								
-								
+
+
+
 								api.findUserIndexPositionByCode({
 									indexGid: zCode.code
 								}).then(data=>{
@@ -981,9 +981,9 @@
 										this.$store.commit('setUserPositionData', data.data.list[0])
 									}
 								})
-								
-								
-								
+
+
+
 							} else {
 								this.$message.error(data.msg);
 							}
@@ -1002,18 +1002,18 @@
 								this.handleOptions2(this.buyNumber);
 								this.getUserInfo();
 								this.$message.success(data.data);
-								
-								
-								
+
+
+
 								var data = await api.findUserPositionByCode({
 									stockCode: gCode.code
 								})
 								if (data.status == 0) {
-								
+
 									this.$store.commit('setUserPositionData', data.data.list[0])
 								}
-								
-								
+
+
 							} else {
 								this.$message.error(data.msg);
 							}
@@ -1068,16 +1068,16 @@
 							lever: this.form.lever,
 							subaccountNumber: this.form.subaccountNumber,
 						};
-						
-						
+
+
 						let data = await api.buyFunds(opts);
 						if (data.status === 0) {
 							this.buyNumber++;
 							this.handleOptions2(this.buyNumber);
 							this.getUserInfo();
 							this.$message.success(data.data);
-							
-							
+
+
 							api.findUserFundsPositionByCode({
 								fundsCode:code
 							}).then(res=>{
@@ -1085,8 +1085,8 @@
 									this.$store.commit('setUserPositionData', data.data.list[0])
 								}
 							})
-							
-							
+
+
 						} else {
 							this.$message.error(data.msg);
 						}
