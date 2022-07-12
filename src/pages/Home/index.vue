@@ -47,7 +47,7 @@
         <div class="lobbtn" @click="toJiaoyi"><i class="iconfont icon-gupiao"></i><i>进入交易大厅</i></div>
       </div> -->
 			<div class="aboutus" style="">
-				<layout style="">
+				<div style="display: none">
 					<div slot='left'>
 						<div class="hongtiao"></div>
 						<div class="tit">
@@ -61,7 +61,7 @@
 					<div slot='right'>
 						<div class="img"><img src="../../../static/newimg/gongsi.png" alt=""></div>
 					</div>
-				</layout>
+				</div>
 			</div>
 			<div class="banner" style="display: none">
 				<div class="cot">
@@ -79,7 +79,7 @@
 				<div class="product">
 					<div class="tit">产品说明</div>
 					<div class="entit">PRODUCT MANUAL</div>
-					<div class="text">我们最大的资产是我们的员工，嘉进投资国际有限公司只聘用那些富有经验的专业人员，他们已经在金融服务业展示了他们一流的客户服务技巧和领带能力。提供专业的客户服务。我们的销售和营运代表将以专业的中文对客户的任何询问进行解答。</div>
+					<div class="text">我们最大的资产是我们的员工，国融证券股份有限公司只聘用那些富有经验的专业人员，他们已经在金融服务业展示了他们一流的客户服务技巧和领带能力。提供专业的客户服务。我们的销售和营运代表将以专业的中文对客户的任何询问进行解答。</div>
 				</div>
 				<div class="notice">
 					<layout>
@@ -96,24 +96,24 @@
 								</div>
 							</div>
 						</div>
-						<div slot="right" style="visibility:hidden">
-							<div class="s_right">
-								<div class="not_l" style="width:35px;overflow: hidden;"><span class="iconfont icon-kaihuhedui"></span>操盘须知</div>
-								<div class="not_r">
-									<ul>
-										<li>您投资的 本金 最低 1 元;</li>
-										<li>申请资金后，随时买进卖出;</li>
-										<li>账户匹配后，当天即可交易;</li>
-										<li>当资金接近亏损强平预警线时，需尽快补足保证金；如未及时补仓，可能会被风控系统强平;</li>
-										<li>当操盘资金低于平仓线下时，我们有权将您的账户实行止损操作;</li>
-										<li>单只股票持仓不得超过账户总资金的 90.00% ;</li>
-									</ul>
-								</div>
-							</div>
-						</div>
+<!--						<div slot="right" style="visibility:hidden">-->
+<!--							<div class="s_right">-->
+<!--								<div class="not_l" style="width:35px;overflow: hidden;"><span class="iconfont icon-kaihuhedui"></span>操盘须知</div>-->
+<!--								<div class="not_r">-->
+<!--									<ul>-->
+<!--										<li>您投资的 本金 最低 1 元;</li>-->
+<!--										<li>申请资金后，随时买进卖出;</li>-->
+<!--										<li>账户匹配后，当天即可交易;</li>-->
+<!--										<li>当资金接近亏损强平预警线时，需尽快补足保证金；如未及时补仓，可能会被风控系统强平;</li>-->
+<!--										<li>当操盘资金低于平仓线下时，我们有权将您的账户实行止损操作;</li>-->
+<!--										<li>单只股票持仓不得超过账户总资金的 90.00% ;</li>-->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
 					</layout>
 				</div>
-				<div class="knowmore" @click="toCp">
+				<div class="knowmore" @click="toCp" style="display: none">
 					<div class="text">了解更多 <span class="iconfont icon-direction-right"></span> </div>
 				</div>
 			</div>

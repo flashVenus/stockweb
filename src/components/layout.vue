@@ -4,9 +4,9 @@
           <div class="left">
               <slot name="left"></slot>
           </div>
-          <div class="right">
-              <slot name="right"></slot>
-          </div>
+<!--          <div class="right">-->
+<!--              <slot name="right"></slot>-->
+<!--          </div>-->
       </div>
   </div>
 </template>
@@ -43,6 +43,7 @@ export default {
     justify-content: space-between;
     .left{
         width: 47%;
+        margin: 0 auto;
     }
     .right{
         width: 47%;
