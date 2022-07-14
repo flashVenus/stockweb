@@ -151,10 +151,10 @@
               fixed="right"
               prop="isLock"
               width="80px"
-              label="平仓">
+              label="卖出">
               <template slot-scope="scope">
                 <!-- <el-button type="primary" plain size="small" @click="toDetail(scope.row)">查看详情</el-button> -->
-                <el-button type="success" plain size="small" @click="toSell(scope.row)">平仓</el-button>
+                <el-button type="success" plain size="small" @click="toSell(scope.row)">卖出</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -277,7 +277,7 @@
         }
       },
       toSell (val) {
-        this.$confirm('您确定要平仓吗?', '提示', {
+        this.$confirm('您确定要卖出吗?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
@@ -295,7 +295,7 @@
         }).catch(() => {
           this.$message({
             type: 'info',
-            message: '已取消平仓'
+            message: '已取消卖出'
           })
         })
       },

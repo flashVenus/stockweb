@@ -37,9 +37,9 @@
         <el-menu-item index="2-24"><span class="iconfont icon-yuandianxiao"></span>配资持仓</el-menu-item>
       </router-link>
       <router-link to="/fundssellorder" tag="li" v-if="$store.state.productSetting.fundsDisplay">
-        <el-menu-item index="2-25"><span class="iconfont icon-yuandianxiao"></span>配资平仓</el-menu-item>
+        <el-menu-item index="2-25"><span class="iconfont icon-yuandianxiao"></span>配资卖出</el-menu-item>
       </router-link> -->
-     
+
 
       <el-menu-item class="banner-menu" index="disabled" disabled>
         <i class="iconfont icon-jiaoyi1"></i>
@@ -58,13 +58,13 @@
         <el-menu-item index="indexhold"><span class="iconfont icon-yuandianxiao"></span>指数持仓</el-menu-item>
       </router-link>
       <router-link v-if="$store.state.productSetting.indexDisplay" to="/indexsell" tag="li">
-        <el-menu-item index="indexsell"><span class="iconfont icon-yuandianxiao"></span>指数平仓</el-menu-item>
+        <el-menu-item index="indexsell"><span class="iconfont icon-yuandianxiao"></span>指数卖出</el-menu-item>
       </router-link>
       <router-link v-if="$store.state.productSetting.futuresDisplay" to="/futuresholdposition" tag="li">
         <el-menu-item index="futureshold"><span class="iconfont icon-yuandianxiao"></span>期货持仓</el-menu-item>
       </router-link>
       <router-link v-if="$store.state.productSetting.futuresDisplay" to="/futuressell" tag="li">
-        <el-menu-item index="futuressell"><span class="iconfont icon-yuandianxiao"></span>期货平仓</el-menu-item>
+        <el-menu-item index="futuressell"><span class="iconfont icon-yuandianxiao"></span>期货卖出</el-menu-item>
       </router-link> -->
        <router-link to="/xingu" tag="li">
         <el-menu-item index="2-14"><span class="iconfont icon-yuandianxiao"></span>新股申购</el-menu-item>
@@ -94,9 +94,9 @@
       <router-link to="/detaillist" tag="li">
         <el-menu-item index="2-4"><span class="iconfont icon-yuandianxiao"></span>资金明细</el-menu-item>
       </router-link>
-      
 
-      
+
+
       <el-menu-item class="banner-menu" index="disabled" disabled>
         <i class="iconfont icon-anquan"></i> 安全中心
       </el-menu-item>

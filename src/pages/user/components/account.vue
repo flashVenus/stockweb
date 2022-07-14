@@ -32,7 +32,7 @@
 				<el-collapse v-model="accountActiveNames">
 					<div class="count-r">
 						<span class="line">
-							（您的沪深账户强制平仓线为
+							（您的沪深账户强制卖出线为
 							<span
 								class="num">{{(($store.state.userInfo.enableAmt + $store.state.userInfo.allFreezAmt) * settingInfo.forceStopPercent).toFixed(2)}}</span>
 							）
@@ -90,7 +90,7 @@
 					</el-collapse-item>
 					<div class="count-r">
 						<span class="line">
-							（您的指数账户强制平仓线为
+							（您的指数账户强制卖出线为
 							<span
 								class="num">{{(($store.state.userInfo.allIndexFreezAmt + $store.state.userInfo.enableIndexAmt) * indexSettingInfo.forceSellPercent).toFixed(2)}}</span>
 							）
@@ -140,7 +140,7 @@
 					</el-collapse-item>
 					<div class="count-r">
 						<span class="line">
-							（您的期货账户强制平仓线为
+							（您的期货账户强制卖出线为
 							<span
 								class="num">{{(($store.state.userInfo.allFuturesFreezAmt + $store.state.userInfo.enableFuturesAmt) ).toFixed(2)}}</span>
 							）

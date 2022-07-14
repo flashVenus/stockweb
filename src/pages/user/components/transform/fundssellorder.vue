@@ -11,9 +11,9 @@
         <div class="wrapper">
           <div class="user-center-title" style="text-align:left;">
             <span class="iconfont icon-you" style="color:#C11815;font-size:18px;margin-right:10px"></span>
-            配资平仓
+            配资卖出
           </div>
-         
+
           <div class="table-search">
             <el-row type="flex" justify='end'>
               <el-col :span="8">

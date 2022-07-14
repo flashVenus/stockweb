@@ -15,7 +15,7 @@ const state = {
 	userMenu: '2-1',
 	productSetting: null,
 	systemColor: '',
-	userPositionData: {}, //出仓数据
+	userPositionData: {}, //卖出数据
 	language: ''
 }
 

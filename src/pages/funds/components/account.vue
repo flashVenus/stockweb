@@ -52,7 +52,7 @@
                     </p>
                   </div>
                 </el-col>
-                
+
                 <el-col :span="6">
                   <div class="box box1">
                     <i class="color4 iconfont icon-yingkuixuanzhong"></i>
@@ -66,10 +66,10 @@
                   </div>
                 </el-col>
               </el-row>
-             
+
             </el-col>
           </el-collapse-item>
-       
+
         </el-collapse>
       </el-row>
       <el-row v-if="false">
@@ -107,7 +107,7 @@
                   <el-form-item label="预警线">
                     <span>{{ scope.row.lineWarning}}</span>
                   </el-form-item>
-                  <el-form-item label="平仓线">
+                  <el-form-item label="卖出线">
                     <span>{{scope.row.lineUnwind}}</span>
                   </el-form-item>
                   <el-form-item label="开始时间">
@@ -116,7 +116,7 @@
                   <el-form-item label="终止时间">
                     <span>{{scope.row.endTime | timeFormat}}</span>
                   </el-form-item>
-                  
+
                 </el-form>
               </template>
             </el-table-column>
@@ -270,7 +270,7 @@
       async getlist () {
         // 获取持仓列表
         let opt = {
-          userId: 0, 
+          userId: 0,
           pageNum: this.pageNum,
           pageSize: this.pageSize
         }

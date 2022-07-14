@@ -13,7 +13,7 @@
             <span class="iconfont icon-you" style="color:#C11815;font-size:18px;margin-right:10px"></span>
             我的配资
           </div>
-          
+
           <!-- <div class="table-search">
             <el-row type="flex" justify='end'>
               <el-col :span="8">
@@ -48,7 +48,7 @@
                   <el-form-item label="预警线">
                     <span>{{ scope.row.lineWarning}}</span>
                   </el-form-item>
-                  <el-form-item label="平仓线">
+                  <el-form-item label="卖出线">
                     <span>{{scope.row.lineUnwind}}</span>
                   </el-form-item>
                   <el-form-item label="开始时间">
@@ -57,7 +57,7 @@
                   <el-form-item label="终止时间">
                     <span>{{scope.row.endTime | timeFormat}}</span>
                   </el-form-item>
-                  
+
                 </el-form>
               </template>
             </el-table-column>
@@ -189,7 +189,7 @@
       },
       async getlist () {
         let opt = {
-          userId: 0, 
+          userId: 0,
           pageNum: this.pageNum,
           pageSize: this.pageSize
         }
@@ -208,7 +208,7 @@
         this.changeTextClass = {}
         // 获取表格数据
         let opts = {
-          userId: 0, 
+          userId: 0,
           pageNum: this.pageNum,
           pageSize: this.pageSize
         }

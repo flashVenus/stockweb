@@ -10,7 +10,7 @@
       <el-main>
         <div class="wrapper">
           <div class="user-center-title">
-            融资平仓
+            融资卖出
           </div>
           <div class="table-search">
             <el-row type="flex" justify='end'>

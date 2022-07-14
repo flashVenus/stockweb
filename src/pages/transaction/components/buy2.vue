@@ -101,11 +101,11 @@
 												<i class="jibi-code">{{userPositionData.coinCode || 0}}</i></span>
 												<span class="exchange-p">≈{{(userPositionData.allProfitAndLose*userPositionData.coinRate).toFixed(2) || 0}} CNY</span>
 											</p>
-										
+
 										</p>
 										</el-col>
 									</el-row>
-									
+
 									<el-row class="buy-item" style="font-size:10px;">
 										<el-checkbox class="check-box" v-model="agree" name="type"></el-checkbox>我同意
 										<a href="javascript:;" @click="tradeDialogVisible = true">《{{siteInfo.tradeAgreeTitle || ''}}》</a>
@@ -127,7 +127,7 @@
 						</el-form>
 						<div>
 							<div>
-								<el-button :loading="loadingBtn" class="buy-button" type="primary" @click="onSubmit('ruleForm1')">出仓</el-button>
+								<el-button :loading="loadingBtn" class="buy-button" type="primary" @click="onSubmit('ruleForm1')">卖出</el-button>
 							</div>
 						</div>
 					</div>
@@ -242,7 +242,7 @@
 						</el-form>
 						<div>
 							<div>
-								<el-button :loading="loadingBtn" class="buy-button" type="primary" @click="onFundsSubmit('ruleForm1')">出仓</el-button>
+								<el-button :loading="loadingBtn" class="buy-button" type="primary" @click="onFundsSubmit('ruleForm1')">卖出</el-button>
 							</div>
 						</div>
 					</div>
@@ -689,7 +689,7 @@
 					this.$message.error(data.msg);
 				}
 			},
-			// 两融交易出仓
+			// 两融交易卖出
 			async onSubmit(formName) {
 				// 先判断是否登录
 				if (!this.$store.state.haslogin) {
@@ -699,11 +699,11 @@
 				}
 
 				// if (!this.agree) {
-				// 	this.$message.error("阅读并同意注册协议才能出仓");
+				// 	this.$message.error("阅读并同意注册协议才能卖出");
 				// 	return;
 				// }
 				// if (!this.userPositionData.positionSn) {
-				// 	this.$message.error("该股票未入仓，不能出仓");
+				// 	this.$message.error("该股票未入仓，不能卖出");
 
 				// 	return;
 				// }
@@ -713,7 +713,7 @@
 				};
 				console.log(this.$route.query.code.indexOf("hf_"))
 				if (this.$route.query.code.indexOf("hf_") != -1) {
-					//期货出仓
+					//期货卖出
 					let data = await api.sellFutures(opts);
 					if (data.status === 0) {
 						this.$message.success(data.msg)
@@ -728,7 +728,7 @@
 					this.$route.query.code.indexOf("sh") != -1 ||
 					this.$route.query.code.indexOf("sz") != -1
 				) {
-					//指数出仓
+					//指数卖出
 					this.loadingBtn = true;
 					let data = await api.sellIndex(opts);
 					if (data.status === 0) {
@@ -737,7 +737,7 @@
 						this.$message.error(data.msg);
 					}
 				} else {
-					// 股票出仓
+					// 股票卖出
 					let data = await api.sell(opts);
 					if (data.status === 0) {
 						this.$message.success(data.msg)
@@ -748,7 +748,7 @@
 
 				this.loadingBtn = false;
 			},
-			// 分仓交易出仓
+			// 分仓交易卖出
 			async onFundsSubmit(formName) {
 
 				// 先判断是否登录
@@ -758,13 +758,13 @@
 					return;
 				}
 				// if (!this.agree) {
-				// 	this.$message.error("阅读并同意注册协议才能出仓");
+				// 	this.$message.error("阅读并同意注册协议才能卖出");
 				// 	return;
 				// }
 
 
 				// if (!this.userPositionData.positionSn) {
-				// 	this.$message.error("该股票未入仓，不能出仓");
+				// 	this.$message.error("该股票未入仓，不能卖出");
 
 				// 	return;
 				// }
@@ -791,7 +791,7 @@
 				// let data = await api.sell(opt);
 				// if (data.status === 0) {
 				// 	 //  this.$message({
-				// 	 //          message: '出仓成功',
+				// 	 //          message: '卖出成功',
 				// 	 //          type: 'success'
 				// 	 // });
 				// 	// this.hasChangeSell++
@@ -824,7 +824,7 @@
 
 
 
-				// this.$confirm("您确定要出仓吗?", "提示", {
+				// this.$confirm("您确定要卖出吗?", "提示", {
 				// 		confirmButtonText: "确定",
 				// 		cancelButtonText: "取消",
 				// 		type: "warning",
@@ -835,7 +835,7 @@
 				// 	.catch(() => {
 				// 		this.$message({
 				// 			type: "info",
-				// 			message: "已取消出仓",
+				// 			message: "已取消卖出",
 				// 		});
 				// 	});
 

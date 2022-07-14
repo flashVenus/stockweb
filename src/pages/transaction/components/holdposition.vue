@@ -153,7 +153,7 @@
         timer: null,
         refresh: false, // 刷新中
         changeTextClass: {}, // 表格中的数据变化
-        hasChangeSell: 0 // 平仓状态改变
+        hasChangeSell: 0 // 卖出状态改变
       }
     },
     watch: {
@@ -275,7 +275,7 @@
       },
       toSell (val) {
         console.log(val)
-        this.$confirm('您确定要平仓吗?', '提示', {
+        this.$confirm('您确定要卖出吗?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
@@ -297,7 +297,7 @@
         }).catch(() => {
           this.$message({
             type: 'info',
-            message: '已取消平仓'
+            message: '已取消卖出'
           })
         })
       }

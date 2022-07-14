@@ -15,7 +15,7 @@
                 <i style="font-size: 1.5rem;" class="maincolor-font iconfont icon-jiaoyi"></i>
               </div> -->
               <el-card class="box-card" style="margin-top:0px;">
-               
+
                 <div class="text item">
                   <el-tabs>
                     <el-tab-pane label="按天配资" name="first">
@@ -36,9 +36,9 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="tr-cols1">平仓线</td>
+                    <td class="tr-cols1">卖出线</td>
                     <td class="tr-cols2">{{Number(Number(form.margin) + (form.margin * fundsSetting.daysUnwind)).toFixed(0)}} 元
-                      <span class="td-font">（平仓线 = 配资资金 + 保证金 X {{fundsSetting.daysUnwind}}）</span>
+                      <span class="td-font">（卖出线 = 配资资金 + 保证金 X {{fundsSetting.daysUnwind}}）</span>
                     </td>
                     <td class="tr-cols3 bgc" >配资资金</td>
                     <td class="bgc">
@@ -51,7 +51,7 @@
                   </tr>
                   <tr>
                     <td class="tr-cols1">管理费</td>
-                    <td class="tr-cols2">{{selManageRate}}% 
+                    <td class="tr-cols2">{{selManageRate}}%
                       <span class="td-font">（{{fundsAmount}} X 天利率{{selManageRate}} % X {{selDaysUseVal}} = {{manageFee}} 元 ）</span>
                     </td>
                     <td class="tr-cols3 bgc" >操盘期限</td>
@@ -108,7 +108,7 @@
                 </div>
 
               </el-card>
-              
+
             </div>
           </div>
         </div>
@@ -253,7 +253,7 @@
         this.selDaysUsePeriod = selVal + '天'
         this.selDaysUseVal = selVal
       }
-      
+
     }
   }
 </script>
@@ -368,5 +368,5 @@
     font-size: 12px;
     line-height: 30px;
 }
-  
+
 </style>

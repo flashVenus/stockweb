@@ -100,10 +100,10 @@
          label="保证金">
        </el-table-column> -->
         <el-table-column
-          label="平仓">
+          label="卖出">
           <template slot-scope="scope">
-            <el-button class="btn-sell" plain title="我要平仓" size="mini" @click="toSell(scope.row)"><i
-              class="iconfont icon-chakan"></i>平仓
+            <el-button class="btn-sell" plain title="我要卖出" size="mini" @click="toSell(scope.row)"><i
+              class="iconfont icon-chakan"></i>卖出
             </el-button>
           </template>
         </el-table-column>
@@ -153,7 +153,7 @@
         timer: null,
         refresh: false, // 刷新中
         changeTextClass: {}, // 表格中的数据变化
-        hasChangeSell: 0 // 平仓状态改变
+        hasChangeSell: 0 // 卖出状态改变
       }
     },
     watch: {
@@ -270,7 +270,7 @@
         }
       },
       toSell (val) {
-        this.$confirm('您确定要平仓吗?', '提示', {
+        this.$confirm('您确定要卖出吗?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
@@ -292,7 +292,7 @@
         }).catch(() => {
           this.$message({
             type: 'info',
-            message: '已取消平仓'
+            message: '已取消卖出'
           })
         })
       }

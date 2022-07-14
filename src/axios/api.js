@@ -20,11 +20,10 @@ export function xingusgs (options) {
   return post('/new/public/index.php/api/Lists/add', options)
 }
 
-//新股冻结资金
+// 新股冻结资金
 export function getprice (options) {
   return get('/new/public/index.php/api/Lists/getprice', options)
 }
-
 
 // 申购提交列表
 export function xingusgsList (options) {
@@ -119,7 +118,7 @@ export function buyFutures (options) {
   return post('/user/buyFutures.do', options)
 }
 
-// 期货平仓
+// 期货卖出
 export function sellFutures (options) {
   return post('/user/sellFutures.do', options)
 }
@@ -163,7 +162,7 @@ export function buyStock (options) {
   return post('/user/buyStock.do', options)
 }
 
-// 用户平仓
+// 用户卖出
 export function sell (options) {
   return post('/user/sell.do', options)
 }
@@ -199,7 +198,7 @@ export function getOrderListWt (options) {
   return post('/user/position/entrustList.do', options)
 }
 
-// 用户平仓委托单
+// 用户卖出委托单
 export function sellWt (options) {
   return post('/user/entrustCancel.do', options)
 }
@@ -333,7 +332,7 @@ export function indexBuy (options) {
   return post('/user/buyIndex.do', options)
 }
 
-// 指数平仓
+// 指数卖出
 export function sellIndex (options) {
   return post('/user/sellIndex.do', options)
 }
@@ -431,7 +430,7 @@ export function getFundsOrderList (options) {
   return post('/user/funds/fundsList.do', options)
 }
 
-// 分仓交易-配资平仓
+// 分仓交易-配资卖出
 export function sellFunds (options) {
   return post('/user/funds/sellFunds.do', options)
 }
@@ -491,7 +490,7 @@ export function updateNewsViews(options) {
 }
 
 
-// 交易大厅-中间下半部分-两融交易出仓查询选中股票最早入仓数据接口
+// 交易大厅-中间下半部分-两融交易卖出查询选中股票最早入仓数据接口
 export function findUserPositionByCode(options) {
   return get('/user/position/findUserPositionByCode.do', options)
 }

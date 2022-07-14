@@ -98,7 +98,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="more" @click="toStock" v-if="newsList.length > 0">
 							<a class="more-btn" href="javascript:;">点击加载更多内容</a>
@@ -150,21 +150,21 @@
 
 						<div class="tab-box jiaoyi-000">
 							<el-tabs v-model="activeNameZero" class="black-style" v-if="$store.state.haslogin">
-								<el-tab-pane label="入仓/出仓" name="zero">
+								<el-tab-pane label="买入/卖出" name="zero">
 									<buy-box1 @selectDetailsItem="selectDetailsItem" :cutIndex="cutIndex" :detailsCont="detailsCont" :hasGetNewOrder="hasGetNewOrder" :handleOptions2="handleOptions2" :settingInfo="settingInfo" :code="code"></buy-box1>
 								</el-tab-pane>
 								<!-- <el-tab-pane label="融资持仓" name="first">
 									<hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder" :handleOptions="handleOptions"></hold-position>
 								</el-tab-pane>
 
-								<el-tab-pane label="融资平仓" name="second">
+								<el-tab-pane label="融资卖出" name="second">
 									<sell-box :hasChangeSell="hasChangeSell" :handleOptions="handleOptions"></sell-box>
 								</el-tab-pane>
 
 								<el-tab-pane label="指数持仓" v-if="$store.state.productSetting.indexDisplay" name="three">
 									<index-hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder2" :handleOptions="handleOptionsindex"></index-hold-position>
 								</el-tab-pane>
-								<el-tab-pane label="指数平仓" v-if="$store.state.productSetting.indexDisplay" name="fours">
+								<el-tab-pane label="指数卖出" v-if="$store.state.productSetting.indexDisplay" name="fours">
 									<index-sell-box :hasChangeSell="hasChangeSell2" :handleOptions="handleOptionsindex"></index-sell-box>
 								</el-tab-pane>
 								<el-tab-pane label="期货持仓" v-if="$store.state.productSetting.futuresDisplay" name="five">
@@ -380,7 +380,7 @@
 					// },
 				],
 				// 行情未登录
-				
+
 				marketNot: [{
 						name: "指数",
 						type: "three"
@@ -495,7 +495,7 @@
 				// this.form2.pageSize = Math.ceil(this.windowHeight / 63)
 				this.windowHeight = document.documentElement.clientHeight -  160; //实时屏幕高度
 				this.windowHeight1 = document.documentElement.clientHeight -  100; //实时屏幕高度
-			
+
 			}, 500);
 			// 暂时排错
 			// let data = {
@@ -540,7 +540,7 @@
 			// 		// window.detailsCont = ''
 			// 	}
 			// },500)
-			
+
 			this.getDetail();
 			this.getNewList();
 			this.getNoticeList();
@@ -600,7 +600,7 @@
 			},
 			async toTransaction(row) {
 				var ziCode = this.$route.query
-				// 出仓数据
+				// 卖出数据
 				var data = await api.findUserPositionByCode({
 					stockCode: row.code || ziCode.code
 				})

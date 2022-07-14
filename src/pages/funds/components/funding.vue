@@ -57,7 +57,7 @@
                     <td class="tr-cols2">
                       <span class="td-font">{{accountinfo.fundsAmount}}元</span>
                     </td>
-                    <td class="tr-cols3">平仓线</td>
+                    <td class="tr-cols3">卖出线</td>
                     <td>
                       <span class="td-span">{{accountinfo.lineUnwind}}元</span>
                     </td>
@@ -93,12 +93,12 @@
                         <span class="spanpadding" @click="contract()">查看合同</span>
                       </div>
                     </td>
-                    
+
                   </tr>
                 </table>
 
                 <div class="auth-box" style="padding-bottom:40px;">
-                  
+
                 </div>
 
           </div>
@@ -347,9 +347,9 @@
                   1. 按天/按周操盘，不返回已扣除的手续费；<br>
                   2. 免息操盘，不扣除任何费用； <br>
                   3. 按月操盘将会扣除剩余未扣除利息的 20% 作为罚金； <br>
-                  4. 请确保您的交易账户已经全部清仓，否则我们将有权把您的持仓进行平仓处理（不保证平仓价格）。
+                  4. 请确保您的交易账户已经全部清仓，否则我们将有权把您的持仓进行卖出处理（不保证卖出价格）。
               </div>
-                
+
             </div>
             <div slot="footer" class="text-center dialog-footer clearfix">
               <el-button type="error" @click="endDialogVisible = false">取消终止</el-button>
@@ -572,7 +572,7 @@
       async getlist (appendType) {
         // 获取持仓列表
         let opt = {
-          userId: this.$store.state.userInfo.id, 
+          userId: this.$store.state.userInfo.id,
           pageNum: this.pageNum,
           pageSize: this.pageSize,
           appendType: appendType
@@ -823,7 +823,7 @@
     }
   }
 
-  
+
   .td-font {
     font-size: 12px;
     margin-left: 0px;

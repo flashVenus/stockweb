@@ -739,7 +739,7 @@
 					//     this.list.push(element)
 					// });
 					this.list = data.data;
-					// 出仓数据
+					// 卖出数据
 					var res = await api.findUserPositionByCode({
 						stockCode: data.data.list[0].code,
 					});
@@ -755,7 +755,7 @@
 			},
 			// 点击股票item
 			async toTransaction(row, column, event) {
-				
+
 				// console.log(row, column, event)
 				// let data = await api.addOption({ code: this.$route.query.code });
 				// if (data.status === 0) {
@@ -776,10 +776,10 @@
 					code = row.stockGid;
 				}
 				this.$emit('changeActiveName','first')
-				
-				
-				
-				
+
+
+
+
 				// 股票交易
 				this.$router.push({
 					path: "/transaction",
@@ -791,7 +791,7 @@
 			},
 			// 期货2.0
 			 toTransaction5(row, column, event) {
-				// 出仓数据
+				// 卖出数据
 				// console.log(row)
 				api.findUserFuturesPositionByCode({
 					futuresGid: row.futuresGid
@@ -800,8 +800,8 @@
 						this.$store.commit('setUserPositionData', data.data.list[0])
 					}
 				})
-				
-				
+
+
 				// 股票交易
 				this.$router.push({
 					path: "/transaction",
@@ -835,7 +835,7 @@
 				this.loading = false;
 			},
 			toTransaction2(row, column, event) {
-				
+
 				api.findUserIndexPositionByCode({
 					indexGid: row.indexGid
 				}).then(data=>{
@@ -844,7 +844,7 @@
 						this.$store.commit('setUserPositionData', data.data.list[0])
 					}
 				})
-			
+
 				// 指数交易
 				if (this.$store.state.haslogin) {
 					if (row.transState === 1) {
@@ -938,8 +938,8 @@
 					this.$message.error("已加载全部");
 				}
 			},
-			
-			
+
+
 			async getOpation() {
 				// 获取是不是已添加自选
 				let opts = {

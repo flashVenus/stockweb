@@ -142,7 +142,7 @@
                     <b v-else></b>
                 </template>
             </el-table-column> -->
-            
+
             <el-table-column
               fixed="right"
               prop="isLock"
@@ -240,7 +240,7 @@
         }
       },
       toSell (val) {
-        this.$confirm('您确定要平仓吗?', '提示', {
+        this.$confirm('您确定要卖出吗?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
@@ -258,7 +258,7 @@
         }).catch(() => {
           this.$message({
             type: 'info',
-            message: '已取消平仓'
+            message: '已取消卖出'
           })
         })
       },

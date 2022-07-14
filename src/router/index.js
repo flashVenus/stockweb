@@ -19,10 +19,10 @@ import ChangeCash from '../pages/user/components/change' // 资产互转
 import HoldPosition from '../pages/user/components/transform/holdposition' // 持仓单
 import IndexHoldPosition from '../pages/user/components/transform/indexholdposition' // 持仓单 指数
 import FuturesHoldPosition from '../pages/user/components/transform/futuresholdposition' // 持仓单 指数
-import SellOrder from '../pages/user/components/transform/sellorder' // 平仓单
-import WtList from '../pages/user/components/transform/wtList' // 平仓单
-import IndexSellOrder from '../pages/user/components/transform/indexsellorder' // 平仓单 指数
-import FuturesSellOrder from '../pages/user/components/transform/futuressellorder' // 平仓单 指数
+import SellOrder from '../pages/user/components/transform/sellorder' // 卖出单
+import WtList from '../pages/user/components/transform/wtList' // 卖出单
+import IndexSellOrder from '../pages/user/components/transform/indexsellorder' // 卖出单 指数
+import FuturesSellOrder from '../pages/user/components/transform/futuressellorder' // 卖出单 指数
 import Bank from '../pages/user/components/save/bank' // 银行卡
 import Auth from '../pages/user/components/save/auth' // 实名认证
 import ChangePwd from '../pages/user/components/save/changepwd' // 修改银行卡
@@ -37,7 +37,7 @@ import Funds from '../pages/funds/index' // 分仓配资
 import Days from '../pages/funds/components/days' // 按天配资
 import Applyfund from '../pages/funds/components/table/applyfund' // 我的配资
 import FundsHoldPosition from '../pages/user/components/transform/fundsholdposition' // 分仓持仓单
-import FundsSellOrder from '../pages/user/components/transform/fundssellorder' // 分仓平仓单
+import FundsSellOrder from '../pages/user/components/transform/fundssellorder' // 分仓卖出单
 import Funding from '../pages/funds/components/funding' // 配资详情
 import Contract from '../pages/funds/components/contract' // 合同
 
@@ -168,7 +168,7 @@ export default new Router({
     }, {
       path: '/futuressell',
       name: 'futuressell',
-      meta: { title: '期货平仓' },
+      meta: { title: '期货卖出' },
       component: FuturesSellOrder
     }, {
       path: '/futuresholdposition',
@@ -178,17 +178,17 @@ export default new Router({
     }, {
       path: '/sell',
       name: 'sell',
-      meta: { title: '平仓单' },
+      meta: { title: '卖出单' },
       component: SellOrder
     }, {
       path: '/wtList',
       name: 'wtList',
-      meta: { title: '平仓单' },
+      meta: { title: '卖出单' },
       component: WtList
     }, {
       path: '/indexsell',
       name: 'indexsell',
-      meta: { title: '指数平仓单' },
+      meta: { title: '指数卖出单' },
       component: IndexSellOrder
     }, {
       path: '/bank',
@@ -249,7 +249,7 @@ export default new Router({
     }, {
       path: '/fundssellorder',
       name: 'fundssellorder',
-      meta: { title: '配资平仓单' },
+      meta: { title: '配资卖出单' },
       component: FundsSellOrder
     }, {
       path: '/funding',
@@ -276,6 +276,6 @@ export default new Router({
       meta: { title: '企业公告详情' },
       component: enterpriseDetails
     }
-    
+
   ]
 })
