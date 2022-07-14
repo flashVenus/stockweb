@@ -55,7 +55,7 @@
                 <div class="left">
                   <div class="item">
                     <div class="i_tit">标的名称：</div>
-                    <div class="msg">上海、深圳股市融资融券板块</div>
+                    <div class="msg">上海、深圳股市账户融券板块</div>
                   </div>
                   <div class="item">
                     <div class="i_tit">市场交易时间：	</div>
@@ -81,7 +81,7 @@
                 <div class="mid">
                   <div class="item">
                     <div class="i_tit">交易额度：		</div>
-                    <div class="msg">采用融资、融券方式，买涨买跌方式买进卖出</div>
+                    <div class="msg">采用账户、融券方式，买涨买跌方式买进卖出</div>
                   </div>
                   <div class="item">
                     <div class="i_tit">最小购买金额：		</div>

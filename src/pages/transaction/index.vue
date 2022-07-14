@@ -138,7 +138,7 @@
 						</div>
 					</el-col>
 					<el-col :span="5" v-if="cutIndex == 1">
-						<!--  ==> 监听融资下单 -->
+						<!--  ==> 监听账户下单 -->
 						<table-box ref="tableBox" @toTransaction="toTransaction" :hasGetNewOrder="hasGetNewOrder2" :handleOptions2="handleOptionsindex2"
 						 :handleOptions3="handleOptions3" :handleOptions4="handleOptions4"></table-box>
 					</el-col>
@@ -153,11 +153,11 @@
 								<el-tab-pane label="买入/卖出" name="zero">
 									<buy-box1 @selectDetailsItem="selectDetailsItem" :cutIndex="cutIndex" :detailsCont="detailsCont" :hasGetNewOrder="hasGetNewOrder" :handleOptions2="handleOptions2" :settingInfo="settingInfo" :code="code"></buy-box1>
 								</el-tab-pane>
-								<!-- <el-tab-pane label="融资持仓" name="first">
+								<!-- <el-tab-pane label="账户持仓" name="first">
 									<hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder" :handleOptions="handleOptions"></hold-position>
 								</el-tab-pane>
 
-								<el-tab-pane label="融资卖出" name="second">
+								<el-tab-pane label="账户卖出" name="second">
 									<sell-box :hasChangeSell="hasChangeSell" :handleOptions="handleOptions"></sell-box>
 								</el-tab-pane>
 
@@ -436,11 +436,11 @@
 				activeName: "zero",
 				haslogin: false,
 				detail: {},
-				hasChangeSell: 0, // 是否平仓 (融资) 平仓之后数字一直加
+				hasChangeSell: 0, // 是否平仓 (账户) 平仓之后数字一直加
 				hasChangeSell2: 0, // 是否平仓 (指数) 平仓之后数字一直加
 				hasChangeSell3: 0, // 是否平仓 (期货) 平仓之后数字一直加
 				hasChangeSell4: 0, // 是否平仓 (配资) 平仓之后数字一直加
-				hasGetNewOrder: 0, // 是否下单(融资)  下单数字++ 使用true/false 第二次为true的时候 页面监听不到
+				hasGetNewOrder: 0, // 是否下单(账户)  下单数字++ 使用true/false 第二次为true的时候 页面监听不到
 				hasGetNewOrder2: 0, // 是否下单(指数)
 				hasGetNewOrder3: 0, // 是否下单(期货)
 				hasGetNewOrder4: 0, // 是否下单(配资)
@@ -791,7 +791,7 @@
 			},
 
 			handleOptions(opts) {
-				// 监听平仓状态 融资
+				// 监听平仓状态 账户
 				this.hasChangeSell = opts;
 				if (this.hasChangeSell) {
 					this.activeName = "second";

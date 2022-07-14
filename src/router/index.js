@@ -158,7 +158,7 @@ export default new Router({
     }, {
       path: '/holdposition',
       name: 'holdposition',
-      meta: { title: '融资持仓单' },
+      meta: { title: '账户持仓单' },
       component: HoldPosition
     }, {
       path: '/indexholdposition',

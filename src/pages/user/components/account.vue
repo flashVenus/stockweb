@@ -29,8 +29,8 @@
           </el-col>
         </el-row>-->
 
-				<el-collapse v-model="accountActiveNames">
-					<div class="count-r">
+				<el-collapse v-model="accountActiveNames" >
+					<div class="count-r" style="display: none">
 						<span class="line">
 							（您的沪深账户强制卖出线为
 							<span
@@ -44,7 +44,7 @@
 								<el-col :span="6">
 									<div class="box box1">
 										<i class="color3 iconfont icon-zijin1"></i>
-										<p class="title">沪深总资金:</p>
+										<p class="title">账户总资金:</p>
 										<p :class="refresh?'number heartBeat':'number'">
 											￥{{$store.state.hide?'****':$store.state.userInfo.userAmt}}</p>
 									</div>
@@ -52,7 +52,7 @@
 								<el-col :span="5">
 									<div class="box box1">
 										<i class="color3 iconfont icon-zijin1"></i>
-										<p class="title">新股冻结保证金:</p>
+										<p class="title">新股冻结资金:</p>
 										<p :class="refresh?'number heartBeat':'number'">
 											￥{{shengoudj.djzj}}</p>
 									</div>
@@ -60,7 +60,7 @@
 								<el-col :span="5">
 									<div class="box box1">
 										<i class="color1 iconfont icon-dongjiezijin"></i>
-										<p class="title">沪深冻结保证金:</p>
+										<p class="title">冻结资金:</p>
 										<p>
 											<span
 												class="number">￥{{$store.state.hide?'****':$store.state.userInfo.allFreezAmt}}</span>
@@ -70,7 +70,7 @@
 								<el-col :span="6">
 									<div class="box box1">
 										<i class="color2 iconfont icon-keyongzijin"></i>
-										<p class="title">沪深可用资金:</p>
+										<p class="title">可用资金:</p>
 										<p class="number">￥{{$store.state.hide?'****':$store.state.userInfo.enableAmt}}
 										</p>
 									</div>
@@ -78,7 +78,7 @@
 								<el-col :span="6">
 									<div class="box box1">
 										<i class="color4 iconfont icon-yingkuixuanzhong"></i>
-										<p class="title">沪深持仓总盈亏:</p>
+										<p class="title">持仓总盈亏:</p>
 										<p :class="refresh?'heartBeat':''">
 											<span
 												:class="$store.state.userInfo.allProfitAndLose>0?'red number':$store.state.userInfo.allProfitAndLose<0?'green number':'number'">￥{{$store.state.hide?'****':$store.state.userInfo.allProfitAndLose}}</span>
@@ -88,7 +88,7 @@
 							</el-row>
 						</el-col>
 					</el-collapse-item>
-					<div class="count-r">
+					<div class="count-r" style="display: none">
 						<span class="line">
 							（您的指数账户强制卖出线为
 							<span
@@ -96,7 +96,7 @@
 							）
 						</span>
 					</div>
-					<el-collapse-item v-show="$store.state.productSetting.indexDisplay" title="指数账户" name="2">
+					<el-collapse-item v-show="false" title="指数账户" name="2">
 						<el-col :span="24">
 							<el-row class="Assets-box" :gutter="20">
 								<el-col :span="6">
@@ -138,7 +138,7 @@
 							</el-row>
 						</el-col>
 					</el-collapse-item>
-					<div class="count-r">
+					<div class="count-r" style="display: none">
 						<span class="line">
 							（您的期货账户强制卖出线为
 							<span
@@ -146,7 +146,7 @@
 							）
 						</span>
 					</div>
-					<el-collapse-item v-if="$store.state.productSetting.futuresDisplay" title="期货账户" name="3">
+					<el-collapse-item v-if="$store.state.productSetting.futuresDisplay" title="期货账户" name="3" style="display: none">
 						<el-col :span="24">
 							<el-row class="Assets-box" :gutter="20">
 								<el-col :span="6">
@@ -377,9 +377,13 @@
 				var styleName = localStorage.getItem("styleName");
 				var color = styleName == "red-bg" ? "#000" : "#fff";
 				window.drawLine = this.drawLine;
-				var data = "沪深账户：¥ " + this.$store.state.userInfo.userAmt;
-				var data1 = "指数账户：¥ " + this.$store.state.userInfo.userIndexAmt;
-				var data2 = "期货账户：¥ " + this.$store.state.userInfo.userFuturesAmt;
+				// var data = "沪深账户：¥ " + this.$store.state.userInfo.userAmt;
+				// var data1 = "指数账户：¥ " + this.$store.state.userInfo.userIndexAmt;
+				// var data2 = "期货账户：¥ " + this.$store.state.userInfo.userFuturesAmt;
+
+        var data = ""
+				var data1 = ""
+				var data2 = ""
 
 				var alldata = '￥' + (Number(this.$store.state.userInfo.userAmt) + Number(this.$store.state.userInfo.userIndexAmt) +
 					Number(this.$store.state.userInfo.userFuturesAmt)).toFixed(2)

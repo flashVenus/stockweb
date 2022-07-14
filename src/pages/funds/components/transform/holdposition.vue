@@ -10,7 +10,7 @@
       <el-main>
         <div class="wrapper user-center-table">
           <div class="user-center-title">
-            融资持仓
+            账户持仓
           </div>
           <div class="table-search">
             <el-row type="flex" justify='end'>

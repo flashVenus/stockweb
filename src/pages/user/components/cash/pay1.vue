@@ -147,15 +147,15 @@
                       <i class="iconfont icon-fuzhi"></i>复制
                     </span>
                   </el-form-item>
-				  
+
                 </div>
 				<div v-if="form.type === 0 && info.channelImg" class="pay-box text-center" style="display: flex;justify-content: center;margin-left: 40px;">
 				  <img class="eq-code" :src="info.channelImg" alt />
 				</div>
               </div>
-			  
+
               <div>
-                
+
               </div>
             </div>
             <div class="chongzhi-btn-cont" @click="chongzhi">
@@ -181,7 +181,7 @@
             </div>
             <div class="chongzhi-item">
               <span class="circle">4</span>
-              <span>充值默认充值在融资账户中，如需充值指数账户可从融资账户转入至指数账户。</span>
+              <span>充值默认充值在账户账户中，如需充值指数账户可从账户账户转入至指数账户。</span>
             </div>
           </div>
           <div class="right">
@@ -191,7 +191,7 @@
         </div>
       </div>
     </div>
-	
+
 	<el-dialog title="支付宝限额说明" :visible.sync="dialogVisible" width="30%">
 	  <div class="text-center">
 	    <img width="100%" src="../../../../assets/image/xiane.png" alt />
@@ -301,7 +301,7 @@
                 </span>
               </el-form-item>
             </div>
-          
+
           </el-form>
           <div v-if="form.type === 0 && info.channelImg" class="pay-box text-center">
             <img class="eq-code" :src="info.channelImg" alt />
@@ -403,7 +403,7 @@
       </el-col>
     </el-row>
     <div class="attention">
-      <p>注意: 充值默认充值在融资账户中,如需充值指数账户可从融资账户转入至指数账户 。</p>
+      <p>注意: 充值默认充值在账户账户中,如需充值指数账户可从账户账户转入至指数账户 。</p>
     </div>
     <el-dialog title="支付宝限额说明" :visible.sync="dialogVisible" width="30%">
       <div class="text-center">
@@ -529,7 +529,7 @@ export default {
         this.$message.error("请输入金额大于100");
         return;
       }
-    
+
       // if(!this.$store.state.userInfo.idCard){
       //     this.$message.error('请先实名认证')
       //     this.$router.push('/auth')
@@ -756,7 +756,7 @@ export default {
 <style lang="less" scoped>
 
 .red-bg {
-  
+
   .chongzhi-cont {
     position: relative;
     .left {

@@ -223,7 +223,7 @@
         this.form.margin = Math.floor(this.form.margin)
       },
       async Onsubmit () {
-        // 融资转指数
+        // 账户转指数
         let opt = {
           userId: this.$store.state.userInfo.id,
           userName: this.$store.state.userInfo.realName,

@@ -87,7 +87,7 @@
                     </div>
                     <div class="chongzhi-item">
                       <span class="circle">4</span>
-                      <span>充值默认充值在融资账户中，如需充值指数账户可从融资账户转入至指数账户。</span>
+                      <span>充值默认充值在账户账户中，如需充值指数账户可从账户账户转入至指数账户。</span>
                     </div>
                   </div>
                   <div class="right">
@@ -131,7 +131,7 @@
             </div>
             <div class="rule-box">
               <div class="attention" style="margin-bottom:10px;">
-                <p>注意: 提现默认提取融资账户中的可用资金,如需提取指数账户中的金额请先转入至融资账户再提取 。</p>
+                <p>注意: 提现默认提取账户账户中的可用资金,如需提取指数账户中的金额请先转入至账户账户再提取 。</p>
               </div>
               <div class="title">提示：</div>
               <div class="attention">

@@ -18,17 +18,17 @@
               <el-card v-if="$store.state.productSetting.indexDisplay || $store.state.userInfo.accountType === 1"
                        class="box-card" style="margin-top:20px;">
                 <!-- <div slot="header" class="clearfix">
-                    <span>融资指数互转</span>
+                    <span>账户指数互转</span>
                 </div> -->
                 <div class="text item">
                   <el-tabs v-model="activeName">
-                    <el-tab-pane label="融资转指数" name="first">
+                    <el-tab-pane label="账户转指数" name="first">
                       <div class="auth-box">
                         <el-alert
                           center
                           :closable="false"
                           style="width:400px;margin:10px auto;"
-                          title="当前融资账户可用余额"
+                          title="当前账户账户可用余额"
                           type="warning">
                           <span>{{$store.state.userInfo.enableAmt}}</span>
                         </el-alert>
@@ -46,7 +46,7 @@
                         </div>
                       </div>
                     </el-tab-pane>
-                    <el-tab-pane label="指数转融资" name="second">
+                    <el-tab-pane label="指数转账户" name="second">
                       <div class="auth-box">
                         <el-alert
                           center
@@ -66,7 +66,7 @@
                           </el-form-item>
                         </el-form>
                         <div slot="footer" class="dialog-footer">
-                          <el-button type="primary" :loading="isloading" @click="Onsubmit(2)">确认转入融资账户</el-button>
+                          <el-button type="primary" :loading="isloading" @click="Onsubmit(2)">确认转入账户账户</el-button>
                         </div>
                       </div>
                     </el-tab-pane>
@@ -77,12 +77,12 @@
               <el-card v-if="$store.state.productSetting.futuresDisplay || $store.state.userInfo.accountType === 1"
                        class="box-card" style="margin-top:20px;">
                 <!-- <div slot="header" class="clearfix">
-                    <span>指数转融资</span>
+                    <span>指数转账户</span>
                     <span class="red">转账金额仅支持整数</span>
                 </div> -->
                 <div class="text item">
                   <el-tabs v-model="activeName2">
-                    <el-tab-pane label="融资转期货" name="first">
+                    <el-tab-pane label="账户转期货" name="first">
                       <div class="auth-box">
                         <el-alert
                           center
@@ -107,7 +107,7 @@
                         </div>
                       </div>
                     </el-tab-pane>
-                    <el-tab-pane label="期货转融资" name="second">
+                    <el-tab-pane label="期货转账户" name="second">
                       <div class="auth-box">
                         <el-alert
                           center
@@ -128,7 +128,7 @@
                         </el-form>
 
                         <div slot="footer" class="dialog-footer">
-                          <el-button type="primary" :loading="isloading" @click="Onsubmit(4)">确认转入融资账户</el-button>
+                          <el-button type="primary" :loading="isloading" @click="Onsubmit(4)">确认转入账户账户</el-button>
                         </div>
                       </div>
                     </el-tab-pane>
@@ -248,10 +248,10 @@
         }
       },
       async Onsubmit (type) {
-        // 融资转指数
+        // 账户转指数
         let opt = {
           amt: type === 1 ? this.form.account1 : type === 2 ? this.form.account2 : type === 3 ? this.form.account3 : this.form.account4,
-          type: type // 1 融资转指数 2 指数转融资
+          type: type // 1 账户转指数 2 指数转账户
         }
         let data = await api.AmtChange(opt)
         if (data.status === 0) {
