@@ -387,7 +387,7 @@
 					return
 				}
 				let data = await api.getMinuteLine(opts)
-				debugger
+				// debugger
 				if (data.status === 0) {
 					// 数据插值
 					let d = data.data

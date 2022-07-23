@@ -37,6 +37,11 @@
                       <el-input type="text" v-model="form.number" placeholder="请输入提现金额"></el-input>
                       <!-- <el-input v-model="form.amt" type="number" placeholder="最小充值金额为100元"></el-input> -->
                     </div>
+                    <div class="chongzhi-input">
+                      <span>资金密码：</span>
+                      <el-input type="text" v-model="form.withdrawPwd" placeholder="请输入资金密码"></el-input>
+                      <!-- <el-input v-model="form.amt" type="number" placeholder="最小充值金额为100元"></el-input> -->
+                    </div>
                     <el-form
                       label-width="100px"
                       v-model="form"
@@ -184,10 +189,14 @@ export default {
       isloading: false,
       form: {
         number: "",
+        withdrawPwd:""
       },
       rule: {
         number: [
           { required: true, message: "请输入提现金额", trigger: "blur" },
+        ],
+        withdrawPwd: [
+          { required: true, message: "请输入提现密码", trigger: "blur" },
         ],
       },
       settingInfo: {
@@ -255,6 +264,7 @@ export default {
       // 提交
       //   this.$refs[formName].validate(async(valid) => {
       //     if (valid) {
+      
       if (!this.$store.state.userInfo.idCard) {
         this.$message.error("请先实名认证");
         this.$router.push("/auth");
@@ -267,8 +277,18 @@ export default {
           this.$router.push("/bank");
           return;
         }
+        if (this.$store.state.userInfo.hasWithdrawPwd == false){
+          this.$message.error("请先设置提现密码");
+          this.$router.push("/zijinpwd");
+          return;
+        }
+        if (!this.form.withdrawPwd) {
+        this.$message.error("请输入提现密码");
+        return;
+        }
         let opts = {
           amt: this.form.number,
+          withdrawPwd: this.form.withdrawPwd,
         };
         this.isloading = true;
         let data = await api.outMoney(opts);

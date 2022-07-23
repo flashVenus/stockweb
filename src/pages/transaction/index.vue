@@ -149,7 +149,7 @@
 						<!-- 持仓单子 -->
 
 						<div class="tab-box jiaoyi-000">
-							<el-tabs v-model="activeNameZero" class="black-style" v-if="$store.state.haslogin">
+							<el-tabs v-model="activeNameZero" class="black-style" v-if="$store.state.haslogin && xuanzhongitem != '指数'">
 								<el-tab-pane label="买入/卖出" name="zero">
 									<buy-box1 @selectDetailsItem="selectDetailsItem" :cutIndex="cutIndex" :detailsCont="detailsCont" :hasGetNewOrder="hasGetNewOrder" :handleOptions2="handleOptions2" :settingInfo="settingInfo" :code="code"></buy-box1>
 								</el-tab-pane>
@@ -450,6 +450,7 @@
 				windowHeight: document.documentElement.clientHeight - 160, //实时屏幕高度
 				windowHeight1: document.documentElement.clientHeight - 200, //实时屏幕高度
 				activeNameZero: 'zero', // 股票项目写死
+				xuanzhongitem:''
 			};
 		},
 		watch: {
@@ -732,6 +733,7 @@
 				}
 			},
 			optTablebox(item, index, type, zi) {
+				this.xuanzhongitem = item.name
 				// 行情tab选项
 				this.optionalIndex = -1;
 				if (zi) {

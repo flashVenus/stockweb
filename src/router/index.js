@@ -26,6 +26,7 @@ import FuturesSellOrder from '../pages/user/components/transform/futuressellorde
 import Bank from '../pages/user/components/save/bank' // 银行卡
 import Auth from '../pages/user/components/save/auth' // 实名认证
 import ChangePwd from '../pages/user/components/save/changepwd' // 修改银行卡
+import Zijinpwd from '../pages/user/components/save/zijinpwd' // 修改银行卡
 import Login from '../pages/login/login' // 登录
 import Register from '../pages/login/register' // 注册
 import Forget from '../pages/login/forget' // 忘记密码
@@ -205,6 +206,12 @@ export default new Router({
       name: 'changepwd',
       meta: { title: '修改密码' },
       component: ChangePwd
+    },
+    {
+      path: '/zijinpwd',
+      name: 'zijinpwd',
+      meta: { title: '修改密码' },
+      component: Zijinpwd
     },
     {
       path: '/login',

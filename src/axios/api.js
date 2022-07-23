@@ -3,6 +3,11 @@ import { post, get } from './index'
 
 // var img_url = APIUrl.util.image // 这个就是图片上传的api url
 
+// 修改资金密码
+export function updateWithdrawPwd (options) {
+  return post('/user/updateWithdrawPwd.do', options)
+}
+
 // 港股单只股票行情数据
 export function getSingleStockGg (options) {
   return post('/api/stock/getSingleStock.do', options)
