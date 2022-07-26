@@ -57,16 +57,16 @@
 											￥{{shengoudj.djzj}}</p>
 									</div>
 								</el-col>
-								<el-col :span="5">
-									<div class="box box1">
-										<i class="color1 iconfont icon-dongjiezijin"></i>
-										<p class="title">冻结资金:</p>
-										<p>
-											<span
-												class="number">￥{{$store.state.hide?'****':$store.state.userInfo.allFreezAmt}}</span>
-										</p>
-									</div>
-								</el-col>
+<!--								<el-col :span="5">-->
+<!--									<div class="box box1">-->
+<!--										<i class="color1 iconfont icon-dongjiezijin"></i>-->
+<!--										<p class="title">冻结资金:</p>-->
+<!--										<p>-->
+<!--											<span-->
+<!--												class="number">￥{{$store.state.hide?'****':$store.state.userInfo.allFreezAmt}}</span>-->
+<!--										</p>-->
+<!--									</div>-->
+<!--								</el-col>-->
 								<el-col :span="6">
 									<div class="box box1">
 										<i class="color2 iconfont icon-keyongzijin"></i>
