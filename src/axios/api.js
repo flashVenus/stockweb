@@ -18,23 +18,22 @@ export function login (options) {
 }
 // 申购
 export function xingusg (options) {
-  return get('/new/public/index.php/api/Newlist/index', options)
+  return get('/index.php/api/Newlist/index', options)
 }
 // 申购提交
 export function xingusgs (options) {
-  return post('/new/public/index.php/api/Lists/add', options)
+  return post('/index.php/api/Lists/add', options)
 }
 
 // 新股冻结资金
 export function getprice (options) {
-  return get('/new/public/index.php/api/Lists/getprice', options)
+  return get('/index.php/api/Lists/getprice', options)
 }
 
 // 申购提交列表
 export function xingusgsList (options) {
-  return get('/new/public/index.php/api/Lists/index', options)
+  return get('/index.php/api/Lists/index', options)
 }
-
 
 
 // 注册

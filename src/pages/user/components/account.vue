@@ -7,8 +7,8 @@
           v-if="$store.state.productSetting.futuresDisplay">+ 期货账户</i>)</span>
         </p>-->
 				<div class="pull-right">
-					<el-button class="cz" @click="toRechange()">充值</el-button>
-					<el-button class="tx" @click="toWithdraw()">提现</el-button>
+					<el-button class="cz" @click="toRechange()">银证转入</el-button>
+					<el-button class="tx" @click="toWithdraw()">银证转出</el-button>
 				</div>
 				<div id="chart" style="width:400px;height:192px;position: relative;"></div>
 				<!-- <p class="number">
