@@ -47,11 +47,11 @@
               <img src="../../../../assets/image/chongzhi1.png" v-if="color == 'red-bg'" alt />
             </div>
             <div class="chongzhi-input">
-              <span>充值金额：</span>
-              <el-input v-model="form.amt" type="number" placeholder="最小充值金额为100元"></el-input>
+              <span>转入金额：</span>
+              <el-input v-model="form.amt" type="number" placeholder="最小转入金额为100元"></el-input>
             </div>
             <div class="chongzhi-type">
-              <span>充值类型:</span>
+              <span>转入类型:</span>
                 <div class="chongzhi-type-item"  v-for="i in optionsPay" @click="changType(i)" :key="i.key">
                   <el-radio v-model="form.id" name="type" :label="i.id">{{i.channelType}}</el-radio>
                 </div>
@@ -159,17 +159,17 @@
               </div>
             </div>
             <div class="chongzhi-btn-cont" @click="chongzhi">
-              <div class="chongzhi-btn">充值</div>
+              <div class="chongzhi-btn">转入</div>
             </div>
           </div>
         </el-form>
 
         <div class="chongzhi-bizhi">
           <div class="chongzhi-bizhi-cont">
-            <div>入金须知</div>
+            <div>转入须知</div>
             <div class="chongzhi-item">
               <span class="circle">1</span>
-              <span>点击“点击去充值”,跳转到支付页面;</span>
+              <span>点击“点击去转入”,跳转到支付页面;</span>
             </div>
             <div class="chongzhi-item">
               <span class="circle">2</span>
@@ -177,11 +177,11 @@
             </div>
             <div class="chongzhi-item">
               <span class="circle">3</span>
-              <span>由于支付收款上限限制，每次收款公户可能不一样，请每次充值前获取最新的二维码完成支付。</span>
+              <span>由于支付收款上限限制，每次收款公户可能不一样，请每次转入前获取最新的二维码完成支付。</span>
             </div>
             <div class="chongzhi-item">
               <span class="circle">4</span>
-              <span>充值默认充值在账户账户中，如需充值指数账户可从账户账户转入至指数账户。</span>
+              <span>转入默认转入在账户账户中，如需转入指数账户可从账户账户转入至指数账户。</span>
             </div>
           </div>
           <div class="right">
@@ -213,12 +213,12 @@
             :rules="rule"
             class="demo-form-inline"
           >
-            <el-form-item label="充值金额" prop="amt">
-              <el-input type="text" v-model="form.amt" placeholder="请输入充值金额"></el-input>
-              <p>最小充值金额为{{this.settingInfo.chargeMinAmt}}元</p>
+            <el-form-item label="转入金额" prop="amt">
+              <el-input type="text" v-model="form.amt" placeholder="请输入转入金额"></el-input>
+              <p>最小转入金额为{{this.settingInfo.chargeMinAmt}}元</p>
             </el-form-item>
 
-            <el-form-item label="充值类型" prop="idCard">
+            <el-form-item label="转入类型" prop="idCard">
               <div class="radio-btn" v-for="i in optionsPay" @click="changType(i)" :key="i.key">
                 <el-radio v-model="form.id" name="type" :label="i.id">{{i.channelType}}</el-radio>
               </div>
@@ -316,7 +316,7 @@
               style="width:200px;"
               :loading="isloading"
               @click="tosubmit('ruleForm')"
-            >充值</el-button>
+            >转入</el-button>
           </div>
           <div slot="footer" class="text-center dialog-footer"></div>
         </div>
@@ -329,7 +329,7 @@
             </p>
             <p class="tip-text">
               <i class="iconfont icon-jingpaibuzhou"></i>由于支付收款上限限制，每次收款公户可能不一样，
-              <span class="red">请每次充值前获取最新的二维码完成支付</span>
+              <span class="red">请每次转入前获取最新的二维码完成支付</span>
             </p>
             <p class="tip-text">
               <i class="iconfont icon-jingpaibuzhou3"></i>如果您的网络环境不稳定，或由于设备、环境、偏好、行为、关系、账户、身份等维度问题，
@@ -337,7 +337,7 @@
             </p>
             <p class="tip-text">
               <i class="iconfont icon-jingpaibuzhou2"></i>为确保入金及时到账，
-              <span class="red">请确认您输入的金额和提交的充值金额一致</span>.
+              <span class="red">请确认您输入的金额和提交的转入金额一致</span>.
             </p>
             <p class="tip-text">
               <i class="iconfont icon-jingpaibuzhou1"></i>受支付宝到账通知时间影响,入金时间到账时间可能会延迟，请耐心等待.
@@ -345,7 +345,7 @@
           </div>
           <div v-if="false" class="tips-group">
             <p>
-              <i class="iconfont icon-liucheng"></i>充值方式：
+              <i class="iconfont icon-liucheng"></i>转入方式：
             </p>
             <p class="tip-text">
               <i class="iconfont icon-buzhou"></i>将二维码保存到本地，打开支付宝扫描二维码，转账到平台指定对公账户
@@ -372,7 +372,7 @@
               <i class="iconfont icon-jinggao1"></i>注意事项：
             </p>
             <p class="tip-text">
-              <i class="iconfont icon-jingpaibuzhou"></i>为确保入金及时到账，请确认您输入的金额和提交的充值金额一致.
+              <i class="iconfont icon-jingpaibuzhou"></i>为确保入金及时到账，请确认您输入的金额和提交的转入金额一致.
             </p>
           </div>
         </div>
@@ -382,7 +382,7 @@
               <i class="iconfont icon-liucheng"></i>操作流程：
             </p>
             <p class="tip-text">
-              <i class="iconfont icon-buzhou"></i>点击“点击去充值”，跳转到支付页面
+              <i class="iconfont icon-buzhou"></i>点击“点击去转入”，跳转到支付页面
             </p>
             <p class="tip-text">
               <i class="iconfont icon-buzhou2"></i>打开手机扫码完成支付
@@ -394,7 +394,7 @@
             </p>
             <p class="tip-text">
               <i class="iconfont icon-jingpaibuzhou"></i>由于支付收款上限限制，每次收款公户可能不一样，
-              <span class="red">请每次充值前获取最新的二维码完成支付</span>
+              <span class="red">请每次转入前获取最新的二维码完成支付</span>
             </p>
           </div>
         </div>
@@ -403,7 +403,7 @@
       </el-col>
     </el-row>
     <div class="attention">
-      <p>注意: 充值默认充值在账户账户中,如需充值指数账户可从账户账户转入至指数账户 。</p>
+      <p>注意: 转入默认转入在账户账户中,如需转入指数账户可从账户账户转入至指数账户 。</p>
     </div>
     <el-dialog title="支付宝限额说明" :visible.sync="dialogVisible" width="30%">
       <div class="text-center">
@@ -422,7 +422,7 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="payh5status = false">取 消</el-button>
-        <el-button type="primary" @click="payh5status = false">充值完成</el-button>
+        <el-button type="primary" @click="payh5status = false">转入完成</el-button>
       </span>
     </el-dialog>-->
   </div>
@@ -483,7 +483,7 @@ export default {
       },
       rule: {
         number: [
-          { required: true, message: "请输入充值金额", trigger: "blur" },
+          { required: true, message: "请输入转入金额", trigger: "blur" },
         ],
       },
       info: {
@@ -595,9 +595,9 @@ export default {
         let data = await api.inMoney(opts);
         if (data.status === 0) {
           // 成功
-          this.$message.success(data.msg ? data.msg : "充值成功!");
+          this.$message.success(data.msg ? data.msg : "转入成功!");
         } else {
-          this.$message.error(data.msg ? data.msg : "充值失败,请重新充值");
+          this.$message.error(data.msg ? data.msg : "转入失败,请重新转入");
         }
         this.isloading = false;
       }
@@ -723,9 +723,9 @@ export default {
             let data = await api.inMoney(opts);
             if (data.status === 0) {
               // 成功
-              this.$message.success(data.msg ? data.msg : "充值成功!");
+              this.$message.success(data.msg ? data.msg : "转入成功!");
             } else {
-              this.$message.error(data.msg ? data.msg : "充值失败,请重新充值");
+              this.$message.error(data.msg ? data.msg : "转入失败,请重新转入");
             }
             this.isloading = false;
           }

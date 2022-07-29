@@ -14,7 +14,7 @@
             <div class="header-chi">
               <div class="user-center-title">
                 <img src="../../../../assets/image/sanjao.png" alt />
-                <span>充值</span>
+                <span>转入</span>
               </div>
             </div>
 

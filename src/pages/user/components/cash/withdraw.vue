@@ -12,7 +12,7 @@
           <div class="header-chi" style="text-align: left;">
             <div class="user-center-title">
               <img src="../../../../assets/image/sanjao.png" alt />
-              <span>提现</span>
+              <span>转出</span>
             </div>
           </div>
           <div class="wrapper">
@@ -33,8 +33,8 @@
                       />
                     </div>
                     <div class="chongzhi-input">
-                      <span>提现金额：</span>
-                      <el-input type="text" v-model="form.number" placeholder="请输入提现金额"></el-input>
+                      <span>转出金额：</span>
+                      <el-input type="text" v-model="form.number" placeholder="请输入转出金额"></el-input>
                       <!-- <el-input v-model="form.amt" type="number" placeholder="最小充值金额为100元"></el-input> -->
                     </div>
                     <div class="chongzhi-input">
@@ -53,7 +53,7 @@
                         <p class="enable">
                           当前账户可用余额：
                           <span class="qian">￥{{$store.state.userInfo.enableAmt}}</span>
-                          <a @click="selectAll" href="javascript:;">全部提现</a>
+                          <a @click="selectAll" href="javascript:;">全部转出</a>
                         </p>
                       </div>
                     </el-form>
@@ -70,14 +70,14 @@
                     </div>
                     <!-- @click="chongzhi" -->
                     <div class="chongzhi-btn-cont" @click="Onsubmit('ruleForm')">
-                      <div class="chongzhi-btn">提现</div>
+                      <div class="chongzhi-btn">转出</div>
                     </div>
                   </div>
                 </el-form>
 
                 <div class="chongzhi-bizhi">
                   <div class="chongzhi-bizhi-cont">
-                    <div>入金须知</div>
+                    <div>转入须知</div>
                     <div class="chongzhi-item">
                       <span class="circle">1</span>
                       <span>点击“点击去充值”,跳转到支付页面;</span>
@@ -114,29 +114,29 @@
             <!-- <div class="box page-part transaction">
             <div class="box-contain clearfix">
               <div class="user-center-title">
-                用户提现
+                用户转出
               </div>
               <div class="text-center">
                 <i style="color:green;font-size: 1.5rem;" class="iconfont icon-tixian1"></i>
               </div>
               <div class="auth-box">
                 <el-form label-width="100px" v-model="form" ref="ruleForm" :rules="rule" class="demo-form-inline">
-                  <el-form-item label="提现金额" prop="number">
-                    <el-input type='text' v-model="form.number" placeholder="请输入提现金额">
+                  <el-form-item label="转出金额" prop="number">
+                    <el-input type='text' v-model="form.number" placeholder="请输入转出金额">
                     </el-input>
                   </el-form-item>
                 </el-form>
                 <p class="enable">当前账户可用余额 <span>{{$store.state.userInfo.enableAmt}}</span> <a @click="selectAll"
-                                                                                               href="javascript:;">全部提现</a>
+                                                                                               href="javascript:;">全部转出</a>
                 </p>
                 <div slot="footer" class="dialog-footer">
-                  <el-button type="success" :loading="isloading" @click="Onsubmit('ruleForm')">提现</el-button>
+                  <el-button type="success" :loading="isloading" @click="Onsubmit('ruleForm')">转出</el-button>
                 </div>
               </div>
             </div>
             <div class="rule-box">
               <div class="attention" style="margin-bottom:10px;">
-                <p>注意: 提现默认提取账户账户中的可用资金,如需提取指数账户中的金额请先转入至账户账户再提取 。</p>
+                <p>注意: 转出默认提取账户账户中的可用资金,如需提取指数账户中的金额请先转入至账户账户再提取 。</p>
               </div>
               <div class="title">提示：</div>
               <div class="attention">
@@ -145,7 +145,7 @@
                 <p>3、出金时间工作日 {{settingInfo.withTimeBegin}} : 00 到 {{settingInfo.withTimeEnd}} : 00 之间。</p>
                 <p>4、每笔出金扣除 {{settingInfo.withFeeSingle}} 元手续费<span v-if="settingInfo.withFeePercent != 0">，加上出金金额 * {{settingInfo.withFeePercent}}</span>。
                 </p>
-                <p>5、每笔提现金额最小 {{settingInfo.withMinAmt}} 元。</p>
+                <p>5、每笔转出金额最小 {{settingInfo.withMinAmt}} 元。</p>
                 <p>6、<span class="red">出金时段内出金一般2小时到账，出金时间收银行间清算时间影响，各家银行到账时间不同，最迟T+1次日24点前到账</span></p>
               </div>
             </div>
@@ -193,10 +193,10 @@ export default {
       },
       rule: {
         number: [
-          { required: true, message: "请输入提现金额", trigger: "blur" },
+          { required: true, message: "请输入转出金额", trigger: "blur" },
         ],
         withdrawPwd: [
-          { required: true, message: "请输入提现密码", trigger: "blur" },
+          { required: true, message: "请输入转出密码", trigger: "blur" },
         ],
       },
       settingInfo: {
@@ -273,17 +273,17 @@ export default {
         this.$router.push("/bank");
       } else {
         if (!this.form.number) {
-          this.$message.error("请输入提现金额");
+          this.$message.error("请输入转出金额");
           this.$router.push("/bank");
           return;
         }
         if (this.$store.state.userInfo.hasWithdrawPwd == false){
-          this.$message.error("请先设置提现密码");
+          this.$message.error("请先设置转出密码");
           this.$router.push("/zijinpwd");
           return;
         }
         if (!this.form.withdrawPwd) {
-        this.$message.error("请输入提现密码");
+        this.$message.error("请输入转出密码");
         return;
         }
         let opts = {
@@ -298,7 +298,7 @@ export default {
           this.$router.push("/withdrawlist");
         } else {
           this.$message.error(
-            data.msg ? data.msg : "提现失败,请重新提现或者联系客服"
+            data.msg ? data.msg : "转出失败,请重新转出或者联系客服"
           );
         }
         this.isloading = false;
