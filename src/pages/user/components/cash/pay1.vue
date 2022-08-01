@@ -168,21 +168,21 @@
           <div class="chongzhi-bizhi-cont">
             <div>转入须知</div>
             <div class="chongzhi-item">
-              <span class="circle">1</span>
-              <span>点击“点击去转入”,跳转到支付页面;</span>
+              <span class="circle">1、</span>
+              <span>点击“转入”跳转客服页面，申请对公账户银证转入资金</span>
             </div>
             <div class="chongzhi-item">
-              <span class="circle">2</span>
-              <span>打开手机扫描完成支付。</span>
+              <span class="circle">2、</span>
+              <span>每次银证转入资金，务必联系我司客服获取最新对公专户完成转入。</span>
             </div>
             <div class="chongzhi-item">
-              <span class="circle">3</span>
-              <span>由于支付收款上限限制，每次收款公户可能不一样，请每次转入前获取最新的二维码完成支付。</span>
+              <span class="circle">3、</span>
+              <span>银证转入成功默认到账户中，需第一时间联系客服确认</span>
             </div>
-            <div class="chongzhi-item">
+            <!-- <div class="chongzhi-item">
               <span class="circle">4</span>
               <span>转入默认转入在账户账户中，如需转入指数账户可从账户账户转入至指数账户。</span>
-            </div>
+            </div> -->
           </div>
           <div class="right">
             <img src="../../../../assets/image/youqingtishi.png" v-if="color == 'black-bg'" alt />
@@ -444,37 +444,37 @@ export default {
       dialogVisible: false,
       isloading: false,
       optionsPay: [
-        {
-          channelAccount: "其他账号",
-          channelDesc: "备注",
-          channelImg: "",
-          channelMaxLimit: 10000,
-          channelMinLimit: 1000,
-          channelName: "其他公司",
-          channelType: "支付宝-线上",
-          ctype: 2,
-          formCode: "903",
-          formUrl: "/user/pay/juhe1.do",
-          id: 8,
-          isLock: 0,
-          isShow: 0,
-        },
-        {
-          channelAccount: "对公转账2账号",
-          channelDesc: "中国银行深圳分行",
-          channelImg:
-            "http://img.navihold.com/0d83e672-2ce0-426a-aad7-6892e63c6c34.png",
-          channelMaxLimit: 10000,
-          channelMinLimit: 10,
-          channelName: "对公转账2名称",
-          channelType: "对公转账2",
-          ctype: 1,
-          formCode: "",
-          formUrl: "",
-          id: 10,
-          isLock: 0,
-          isShow: 0,
-        },
+        // {
+        //   channelAccount: "其他账号",
+        //   channelDesc: "备注",
+        //   channelImg: "",
+        //   channelMaxLimit: 10000,
+        //   channelMinLimit: 1000,
+        //   channelName: "其他公司",
+        //   channelType: "支付宝-线上",
+        //   ctype: 2,
+        //   formCode: "903",
+        //   formUrl: "/user/pay/juhe1.do",
+        //   id: 8,
+        //   isLock: 0,
+        //   isShow: 0,
+        // },
+        // {
+        //   channelAccount: "对公转账2账号",
+        //   channelDesc: "中国银行深圳分行",
+        //   channelImg:
+        //     "http://img.navihold.com/0d83e672-2ce0-426a-aad7-6892e63c6c34.png",
+        //   channelMaxLimit: 10000,
+        //   channelMinLimit: 10,
+        //   channelName: "对公转账2名称",
+        //   channelType: "对公转账2",
+        //   ctype: 1,
+        //   formCode: "",
+        //   formUrl: "",
+        //   id: 10,
+        //   isLock: 0,
+        //   isShow: 0,
+        // },
       ], // 支付渠道
       form: {
         id: "",

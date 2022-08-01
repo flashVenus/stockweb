@@ -12,14 +12,14 @@
         <div class="wrapper">
           <div class="user-center-title" style="text-align:left;">
             <span class="iconfont icon-you" style="color:#C11815;font-size:18px;margin-right:10px"></span>
-            提现记录
+            转出记录
           </div>
           <el-table
             :data="list.list"
             style="width: 100%">
             <el-table-column
               prop="withAmt"
-              label="提现金额">
+              label="转出金额">
             </el-table-column>
             <el-table-column
               prop="withFee"
@@ -38,7 +38,7 @@
                                class="iconfont icon-failure animated bounceInDown"></i>
                             <i v-if="scope.row.withStatus === 3"
                                class="iconfont icon-iconfontweitongguo animated bounceInDown"></i>
-                            {{scope.row.withStatus === 1?'提现成功':scope.row.withStatus === 2?'提现失败':scope.row.withStatus === 3?'取消提现':'审核中'}}
+                            {{scope.row.withStatus === 1?'转出成功':scope.row.withStatus === 2?'转出失败':scope.row.withStatus === 3?'取消转出':'审核中'}}
                         </span>
               </template>
             </el-table-column>
@@ -50,7 +50,7 @@
             <el-table-column
               prop="addTime"
               width="180px"
-              label="提现银行卡">
+              label="转出银行卡">
               <template slot-scope="scope">
                 {{scope.row.bankName}}-{{scope.row.bankAddress}}
               </template>
@@ -58,7 +58,7 @@
             <el-table-column
               width="170px"
               prop="bankNo"
-              label="提现卡号">
+              label="转出卡号">
             </el-table-column>
             <el-table-column
               prop="applyTime"
@@ -76,7 +76,7 @@
               label="取消">
               <template slot-scope="scope">
                 <el-button v-if="scope.row.withStatus != 3" type="danger" plain size="small"
-                           @click="toOption(scope.row)">取消提现
+                           @click="toOption(scope.row)">取消转出
                 </el-button>
               </template>
             </el-table-column>
@@ -139,7 +139,7 @@
         this.getlist()
       },
       async getlist () {
-        // 获取 提现记录
+        // 获取 转出记录
         let opts = {
           pageNum: this.pageNum,
           pageSize: 10
@@ -156,7 +156,7 @@
         }
       },
       async toOption (val) {
-        // 取消提现
+        // 取消转出
         let opt = {
           withId: val.id
         }

@@ -11,10 +11,10 @@ import NoticeDetail from '../pages/notice/components/detail' // 公告详情
 import User from '../pages/user/index' // 用户中心
 import CashDetail from '../pages/user/components/list' // 资金记录
 import DetailList from '../pages/user/components/table/detail' // 资金明细
-import WithdrawList from '../pages/user/components/table/withdraw' // 提现记录
-import RechargeList from '../pages/user/components/table/recharge' // 充值记录
-import Recharge from '../pages/user/components/cash/recharge' // 提现
-import Withdraw from '../pages/user/components/cash/withdraw' // 充值
+import WithdrawList from '../pages/user/components/table/withdraw' // 转出记录
+import RechargeList from '../pages/user/components/table/recharge' // 转入记录
+import Recharge from '../pages/user/components/cash/recharge' // 转出
+import Withdraw from '../pages/user/components/cash/withdraw' // 转入
 import ChangeCash from '../pages/user/components/change' // 资产互转
 import HoldPosition from '../pages/user/components/transform/holdposition' // 持仓单
 import IndexHoldPosition from '../pages/user/components/transform/indexholdposition' // 持仓单 指数
@@ -134,22 +134,22 @@ export default new Router({
     }, {
       path: '/withdrawlist',
       name: 'withdrawlist',
-      meta: { title: '提现记录' },
+      meta: { title: '转出记录' },
       component: WithdrawList
     }, {
       path: '/rechargelist',
       name: 'rechargelist',
-      meta: { title: '充值记录' },
+      meta: { title: '转入记录' },
       component: RechargeList
     }, {
       path: '/recharge',
       name: 'recharge',
-      meta: { title: '充值' },
+      meta: { title: '转入' },
       component: Recharge
     }, {
       path: '/withdraw',
       name: 'withdraw',
-      meta: { title: '提现' },
+      meta: { title: '转出' },
       component: Withdraw
     }, {
       path: '/changeCash',

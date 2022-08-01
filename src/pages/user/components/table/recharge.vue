@@ -11,7 +11,7 @@
       <el-main>
         <div class="user-center-title" style="text-align:left;">
             <span class="iconfont icon-you" style="color:#C11815;font-size:18px;margin-right:10px"></span>
-            充值记录
+            转入记录
         </div>
         <div class="wrapper">
           <el-table v-if="true"
@@ -33,7 +33,7 @@
               
               width="400px">
               <template slot-scope="scope">
-                <span class="number">充值: <span class="rmb">￥{{scope.row.payAmt}}</span></span>
+                <span class="number">转入: <span class="rmb">￥{{scope.row.payAmt}}</span></span>
               </template>
             </el-table-column>
             <el-table-column
@@ -62,14 +62,14 @@
                                class="iconfont icon-failure animated bounceInDown"></i>
                             <i v-if="scope.row.orderStatus === 3"
                                class="iconfont icon-iconfontweitongguo animated bounceInDown"></i>
-                            {{scope.row.orderStatus === 1?'充值成功':scope.row.orderStatus === 2?'充值失败':scope.row.orderStatus === 3?'取消充值':'审核中'}}
+                            {{scope.row.orderStatus === 1?'转入成功':scope.row.orderStatus === 2?'转入失败':scope.row.orderStatus === 3?'取消转入':'审核中'}}
                         </span>
               </template>
             </el-table-column>
           </el-table>
           <el-card class="box-card">
             <!-- <div class="user-center-title">
-              充值记录
+              转入记录
             </div> -->
 
 
@@ -91,14 +91,14 @@
                                    class="iconfont icon-failure animated bounceInDown"></i>
                                 <i v-if="item.orderStatus === 3"
                                    class="iconfont icon-iconfontweitongguo animated bounceInDown"></i>
-                                {{item.orderStatus === 1?'充值成功':item.orderStatus === 2?'充值失败':item.orderStatus === 3?'取消充值':'审核中'}}
+                                {{item.orderStatus === 1?'转入成功':item.orderStatus === 2?'转入失败':item.orderStatus === 3?'取消转入':'审核中'}}
                             </span>
                 </div>
               </div>
               <div>
                 <p>订单号：{{item.orderSn}}</p>
                 <p class="mini-font">
-                  充值时间：{{item.addTime | timeFormat}}
+                  转入时间：{{item.addTime | timeFormat}}
                 </p>
               </div>
 

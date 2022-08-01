@@ -190,7 +190,7 @@
                 width="100px"
                 label="卖出"
               >
-                <template slot-scope="scope">
+                <template slot-scope="scope" v-if="scope.row.auditStatus == 2 || !scope.row.auditStatus">
                   <!-- <el-button type="primary" plain size="small" @click="toDetail(scope.row)">查看详情</el-button> -->
                   <el-button
                     type="success"
