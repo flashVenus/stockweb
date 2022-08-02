@@ -269,16 +269,16 @@
 						</div>
 
 					</el-col>
-					<el-col class="alterWidthLeft" :span="5" v-if="cutIndex == 1 && xuanzhongitem != '指数'">
+					<el-col class="alterWidthLeft" :span="5" v-if="cutIndex == 1 ">
+					<!-- && xuanzhongitem != '指数' -->
 						<buy-box :hasGetNewOrder="hasGetNewOrder" :handleOptions2="handleOptions2"
 							:settingInfo="settingInfo" :code="code"></buy-box>
 					</el-col>
-					<el-col class="alterWidthLeft" :span="5" v-if="cutIndex == 1 && xuanzhongitem == '指数'">
+					<!-- <el-col class="alterWidthLeft" :span="5" v-if="cutIndex == 1 && xuanzhongitem == '指数'">
 						<div style="text-align:center;">
-
 							<p style="margin-top: 30vh;">暂无数据</p>
 						</div>
-					</el-col>
+					</el-col> -->
 				</el-row>
 			</el-main>
 		</el-container>

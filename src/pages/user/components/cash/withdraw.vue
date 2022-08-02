@@ -37,11 +37,10 @@
                       <el-input type="text" v-model="form.number" placeholder="请输入转出金额"></el-input>
                       <!-- <el-input v-model="form.amt" type="number" placeholder="最小充值金额为100元"></el-input> -->
                     </div>
-                    <div class="chongzhi-input">
+                    <!-- <div class="chongzhi-input">
                       <span>资金密码：</span>
                       <el-input type="text" v-model="form.withdrawPwd" placeholder="请输入资金密码"></el-input>
-                      <!-- <el-input v-model="form.amt" type="number" placeholder="最小充值金额为100元"></el-input> -->
-                    </div>
+                    </div> -->
                     <el-form
                       label-width="100px"
                       v-model="form"
@@ -63,19 +62,19 @@
                         可用：
                         <span class="k">{{$store.state.userInfo.enableAmt}}</span>
                       </p>
-                      <p class="enable">
+                      <!-- <p class="enable">
                         冻结：
                         <span class="k">{{$store.state.hide?'****':$store.state.userInfo.allFreezAmt}}</span>
-                      </p>
+                      </p> -->
                     </div>
                     <!-- @click="chongzhi" -->
                     <div class="chongzhi-btn-cont" @click="Onsubmit('ruleForm')">
-                      <div class="chongzhi-btn">转出</div>
+                      <div class="chongzhi-btn">银证转出</div>
                     </div>
                   </div>
                 </el-form>
 
-                <div class="chongzhi-bizhi">
+                <div class="chongzhi-bizhi" style="display:none;">
                   <div class="chongzhi-bizhi-cont">
                     <div>转入须知</div>
                     <div class="chongzhi-item">
@@ -195,9 +194,9 @@ export default {
         number: [
           { required: true, message: "请输入转出金额", trigger: "blur" },
         ],
-        withdrawPwd: [
-          { required: true, message: "请输入转出密码", trigger: "blur" },
-        ],
+        // withdrawPwd: [
+        //   { required: true, message: "请输入转出密码", trigger: "blur" },
+        // ],
       },
       settingInfo: {
         withTimeBegin: "",
@@ -277,18 +276,18 @@ export default {
           this.$router.push("/bank");
           return;
         }
-        if (this.$store.state.userInfo.hasWithdrawPwd == false){
-          this.$message.error("请先设置转出密码");
-          this.$router.push("/zijinpwd");
-          return;
-        }
-        if (!this.form.withdrawPwd) {
-        this.$message.error("请输入转出密码");
-        return;
-        }
+        // if (this.$store.state.userInfo.hasWithdrawPwd == false){
+        //   this.$message.error("请先设置转出密码");
+        //   this.$router.push("/zijinpwd");
+        //   return;
+        // }
+        // if (!this.form.withdrawPwd) {
+        // this.$message.error("请输入转出密码");
+        // return;
+        // }
         let opts = {
           amt: this.form.number,
-          withdrawPwd: this.form.withdrawPwd,
+          // withdrawPwd: this.form.withdrawPwd,
         };
         this.isloading = true;
         let data = await api.outMoney(opts);

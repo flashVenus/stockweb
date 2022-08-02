@@ -190,7 +190,7 @@
                 width="100px"
                 label="卖出"
               >
-                <template slot-scope="scope" v-if="scope.row.auditStatus == 2 || !scope.row.auditStatus">
+                <template slot-scope="scope" >
                   <!-- <el-button type="primary" plain size="small" @click="toDetail(scope.row)">查看详情</el-button> -->
                   <el-button
                     type="success"
@@ -200,8 +200,22 @@
                     @click="
                       sellitem = scope.row;
                       pldialogVisible = true;
-                    "
+                    " v-if="scope.row.auditStatus == 2"
                     >卖出</el-button
+                  >
+                   <el-button
+                    type="success"
+                    style="cursor: pointer; z-index: 9999999"
+                    plain
+                    size="small" v-if="scope.row.auditStatus == 0"
+                    >待审核</el-button
+                  >
+                   <el-button
+                    type="success"
+                    style="cursor: pointer; z-index: 9999999"
+                    plain
+                    size="small" v-if="scope.row.auditStatus == 3"
+                    >已驳回</el-button
                   >
                 </template>
               </el-table-column>

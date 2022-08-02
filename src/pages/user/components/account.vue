@@ -38,8 +38,9 @@
 							）
 						</span>
 					</div>
-					<el-collapse-item title="沪深账户" name="1">
-						<el-col :span="24">
+					<!-- <el-collapse-item title="沪深账户" name="1"> -->
+						<div style="color:#fff" class="el-collapse-item__wrap">
+							<el-col :span="24">
 							<el-row class="Assets-box" :gutter="20">
 								<el-col :span="6">
 									<div class="box box1">
@@ -49,14 +50,14 @@
 											￥{{$store.state.hide?'****':$store.state.userInfo.userAmt}}</p>
 									</div>
 								</el-col>
-								<el-col :span="5">
+								<!-- <el-col :span="5">
 									<div class="box box1">
 										<i class="color3 iconfont icon-zijin1"></i>
 										<p class="title">新股冻结资金:</p>
 										<p :class="refresh?'number heartBeat':'number'">
 											￥{{shengoudj.djzj}}</p>
 									</div>
-								</el-col>
+								</el-col> -->
 <!--								<el-col :span="5">-->
 <!--									<div class="box box1">-->
 <!--										<i class="color1 iconfont icon-dongjiezijin"></i>-->
@@ -87,7 +88,9 @@
 								</el-col>
 							</el-row>
 						</el-col>
-					</el-collapse-item>
+						</div>
+						
+					<!-- </el-collapse-item> -->
 					<div class="count-r" style="display: none">
 						<span class="line">
 							（您的指数账户强制卖出线为

@@ -125,7 +125,8 @@
               <div class="youyi">友谊提示：</div>
               <div class="chongzhi-item">
                 <span class="circle">1</span>
-                <span>新用户注册后必须通过添加银行卡。</span>
+                <span>新用户注册后必须通过实名认证激活账户
+</span>
               </div>
               <div class="chongzhi-item">
                 <span class="circle">2</span>
@@ -133,7 +134,8 @@
               </div>
               <div class="chongzhi-item">
                 <span class="circle">3</span>
-                <span>真实姓名必须和出金银行卡名一致。</span>
+                <span>真实姓名必须与本人银行卡一致
+</span>
               </div>
             </div>
             <div class="right"></div>

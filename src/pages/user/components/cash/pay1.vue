@@ -109,7 +109,8 @@
                     <el-button type="text" @click="toLook">查看支付宝限额说明</el-button>
                   </el-row>
                 </div>
-                <div v-else-if="form.type === 1">
+                <!-- v-else-if="form.type === 1" -->
+                <div style="display:none">
                   <el-form-item label="收款银行" prop="name">
                     <el-input disabled type="text" class="chongzhi-input1" v-model="info.channelDesc" placeholder="收款名称"></el-input>
                   </el-form-item>
@@ -159,7 +160,7 @@
               </div>
             </div>
             <div class="chongzhi-btn-cont" @click="chongzhi">
-              <div class="chongzhi-btn">转入</div>
+              <div class="chongzhi-btn">银证转入</div>
             </div>
           </div>
         </el-form>
@@ -168,6 +169,14 @@
           <div class="chongzhi-bizhi-cont">
             <div>转入须知</div>
             <div class="chongzhi-item">
+              <span class="circle">1、</span>
+              <span>点击银证转入，申请对公账户银证转入资金2.每次银证车专入资金请联系吝服取通道</span>
+            </div>
+            <div class="chongzhi-item">
+              <span class="circle">2、</span>
+              <span>每次银证车专入资金请联系吝服取通道</span>
+            </div>
+            <!-- <div class="chongzhi-item">
               <span class="circle">1、</span>
               <span>点击“转入”跳转客服页面，申请对公账户银证转入资金</span>
             </div>
@@ -178,10 +187,6 @@
             <div class="chongzhi-item">
               <span class="circle">3、</span>
               <span>银证转入成功默认到账户中，需第一时间联系客服确认</span>
-            </div>
-            <!-- <div class="chongzhi-item">
-              <span class="circle">4</span>
-              <span>转入默认转入在账户账户中，如需转入指数账户可从账户账户转入至指数账户。</span>
             </div> -->
           </div>
           <div class="right">

@@ -227,6 +227,20 @@ export default {
     },
     async shengData() {
       // 获取持仓列表
+      if (this.haoForm.shehao < this.tijiao.min_apply_lot) {
+        this.$message({
+          message: '申购数量不可小于' + this.tijiao.min_apply_lot,
+          type: 'warning'
+        });
+        return false
+      }
+      if (this.haoForm.shehao > this.tijiao.min_apply_lot) {
+        this.$message({
+          message: '申购数量不可大于' + this.tijiao.max_apply_lot,
+          type: 'warning'
+        });
+        return false
+      }
       var timestamps = (new Date()).getTime();
       let opt = {
         sgname:this.tijiao.names,
