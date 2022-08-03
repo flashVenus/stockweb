@@ -137,7 +137,7 @@
                   >
                 </template>
               </el-table-column>
-              <el-table-column prop="orderDirection" label="方向">
+              <!-- <el-table-column prop="orderDirection" label="方向">
                 <template slot-scope="scope">
                   <span
                     :class="
@@ -155,7 +155,7 @@
                     ></i>
                   </span>
                 </template>
-              </el-table-column>
+              </el-table-column> -->
               <el-table-column prop="orderNum" label="数量"> </el-table-column>
               <el-table-column prop="orderTotalPrice" label="总市值">
               </el-table-column>
