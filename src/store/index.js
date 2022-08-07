@@ -40,6 +40,23 @@ export default new Vuex.Store({
 			}
 			state.userPositionData = data
 
-		}
+		},
+		showMQPanel (state, v) {
+			console.log(state.userInfo, state.user)
+			if (_MEIQIA) {
+			  if (v && !state.mqPanelShow) {
+				_MEIQIA('metadata', {
+				  comment: state.userInfo.nickName, // 备注
+				  name: state.userInfo.realName, // 名字
+				  tel: state.userInfo.phone // 电话
+				});
+				_MEIQIA('showPanel')
+				state.mqPanelShow = true
+			  } else {
+				_MEIQIA('hidePanel')
+				state.mqPanelShow = false
+			  }
+			}
+		  }
 	}
 })

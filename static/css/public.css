@@ -15361,8 +15361,8 @@ a {
 }
 
 body.black-bg {
-  background: #181a1e;
-  background-color: #181a1e;
+  background: #181a1e !important;
+  background-color: #181a1e !important;
 }
 
 body {

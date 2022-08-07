@@ -170,11 +170,11 @@
             <div>转入须知</div>
             <div class="chongzhi-item">
               <span class="circle">1、</span>
-              <span>点击银证转入，申请对公账户银证转入资金2.每次银证车专入资金请联系吝服取通道</span>
+              <span>点击银证转入，申请对公账户银证转入资金</span>
             </div>
             <div class="chongzhi-item">
               <span class="circle">2、</span>
-              <span>每次银证车专入资金请联系吝服取通道</span>
+              <span>每次银证转入资金请联系客服获取通道</span>
             </div>
             <!-- <div class="chongzhi-item">
               <span class="circle">1、</span>
@@ -527,9 +527,55 @@ export default {
   },
   mounted() {
     this.getPayInfo();
+    // this.init();
   },
   methods: {
+    init() {
+      (function (m, ei, q, i, a, j, s) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        (j = ei.createElement(q)), (s = ei.getElementsByTagName(q)[0]);
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/widget/loader.js';
+        s.parentNode.insertBefore(j, s);
+      })(window, document, 'script', '_MEIQIA');
+      _MEIQIA('entId', '52118d1134024d3c21fc18109d82d3b7' || entId);
+      _MEIQIA('withoutBtn');
+      _MEIQIA('standalone', function (config) {
+        if (config.color) {
+          document.body.style['background-color'] = '#' + config.color;
+        }
+        if (config.url) {
+          document.body.style['background-image'] = 'url(' + config.url + ')';
+          document.body.style['background-repeat'] = 'no-repeat';
+          document.body.style['background-size'] = '100% 100%';
+        }
+      });
+      if (data.language) {
+        _MEIQIA('language', data.language);
+      }
+      if (data.subsource) {
+        _MEIQIA('subSource', data.subsource);
+      }
+      if (data.fallback) {
+        _MEIQIA('fallback', data.fallback);
+      }
+      if (data.clientid) {
+        _MEIQIA('clientId', data.clientid);
+      }
+      if (data.agentid || data.groupid) {
+        _MEIQIA('assign', { agentToken: data.agentid || null, groupToken: data.groupid || null });
+      }
+    },
+
     async chongzhi() {
+      // this.$store.commit("showMQPanel", true);
+      window.location.href = 'https://chatlink.mstatik.com/widget/standalone.html?eid=52118d1134024d3c21fc18109d82d3b7'
+      return
       if (this.form.amt < 100) {
         this.$message.error("请输入金额大于100");
         return;
