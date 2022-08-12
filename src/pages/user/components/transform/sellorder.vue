@@ -91,7 +91,7 @@
                 <span :class="scope.row.profitAndLose > 0 ? 'red':'green'">{{scope.row.profitAndLose}}</span>
               </template>
             </el-table-column>
-            <el-table-column
+            <!-- <el-table-column
               prop="allProfitAndLose"
               label="总盈亏">
               <template slot-scope="scope">
@@ -108,7 +108,7 @@
                             <i v-if="scope.row.orderDirection === '买跌'" class="iconfont icon-down"></i>
                         </span>
               </template>
-            </el-table-column>
+            </el-table-column> -->
             <el-table-column
               prop="orderNum"
               label="数量">

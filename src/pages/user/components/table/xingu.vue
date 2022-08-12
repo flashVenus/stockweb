@@ -121,7 +121,20 @@
             <div class="storeinformation_popup">
               <el-form :model="haoForm" ref="haoForm" class="demo-form">
                 <div class="storeinformation_popup_top">
+                   <el-form-item>
+                    <p>申购价格：</p>
+                    <el-input
+                      type="text"
+                      v-model="tijiao.price"
+                      clearable="true"
+                      show-word-limit
+                      readonly
+                    >
+                    </el-input>
+                  </el-form-item>
+                  
                   <el-form-item>
+                    <p>申购数量：</p>
                     <el-input
                       type="text"
                       v-model="haoForm.shehao"
@@ -234,7 +247,7 @@ export default {
         });
         return false
       }
-      if (this.haoForm.shehao > this.tijiao.min_apply_lot) {
+      if (this.haoForm.shehao > this.tijiao.max_apply_lot) {
         this.$message({
           message: '申购数量不可大于' + this.tijiao.max_apply_lot,
           type: 'warning'

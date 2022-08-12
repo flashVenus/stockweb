@@ -261,7 +261,7 @@
                   </div>
                   <div class="chongzhi-item">
                     <span class="circle">3</span>
-                    <span>真实姓名必须和出金银行卡名一致。</span>
+                    <span>真实姓名必须和本人银行卡名一致。</span>
                   </div>
                 </div>
                 <div class="right">

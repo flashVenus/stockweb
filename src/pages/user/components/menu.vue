@@ -109,9 +109,9 @@
       <router-link to="/changepwd" tag="li">
         <el-menu-item index="2-11"><span class="iconfont icon-yuandianxiao"></span>修改密码</el-menu-item>
       </router-link>
-      <router-link to="/zijinpwd" tag="li">
+      <!-- <router-link to="/zijinpwd" tag="li">
         <el-menu-item index="2-12"><span class="iconfont icon-yuandianxiao"></span>资金密码</el-menu-item>
-      </router-link>
+      </router-link> -->
       <!-- <el-menu-item class="book" index="2-12">
         <a style="margin-left:-40px;"  href="javascript:;" @click="tradeDialogVisible = true">{{$store.state.siteInfo.tradeAgreeTitle}}</a>
       </el-menu-item> -->

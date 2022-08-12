@@ -129,14 +129,14 @@
                   >
                 </template>
               </el-table-column>
-              <el-table-column prop="allProfitAndLose" label="总盈亏">
+              <!-- <el-table-column prop="allProfitAndLose" label="总盈亏">
                 <template slot-scope="scope">
                   <span
                     :class="scope.row.allProfitAndLose > 0 ? 'red' : 'green'"
                     >{{ scope.row.allProfitAndLose }}</span
                   >
                 </template>
-              </el-table-column>
+              </el-table-column> -->
               <!-- <el-table-column prop="orderDirection" label="方向">
                 <template slot-scope="scope">
                   <span
@@ -208,7 +208,7 @@
                     style="cursor: pointer; z-index: 9999999"
                     plain
                     size="small" v-if="scope.row.auditStatus == 0"
-                    >待审核</el-button
+                    >已委托</el-button
                   >
                    <el-button
                     type="success"

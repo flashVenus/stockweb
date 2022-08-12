@@ -106,12 +106,12 @@
                     <div class="msg">{{sitesetInfo.stayMaxDays}} 天</div>
                   </div>
                   <div class="item">
-                    <div class="i_tit">出金规则：		</div>
-                    <div class="msg">当前有持仓无法出金，最小出金金额为 {{sitesetInfo.withMinAmt}} 元</div>
+                    <div class="i_tit">转出规则：		</div>
+                    <div class="msg">当前有持仓无法转出，最小转出金额为 {{sitesetInfo.withMinAmt}} 元</div>
                   </div>
                   <div class="item">
-                    <div class="i_tit">出金时间：			</div>
-                    <div class="msg">出金时间为 {{sitesetInfo.withTimeBegin}} :00 和 {{sitesetInfo.withTimeEnd}} : 00 之间</div>
+                    <div class="i_tit">转出时间：			</div>
+                    <div class="msg">转出时间为 {{sitesetInfo.withTimeBegin}} :00 和 {{sitesetInfo.withTimeEnd}} : 00 之间</div>
                   </div>
                   <div class="item">
                     <div class="i_tit">时差：		</div>
