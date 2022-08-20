@@ -15,9 +15,9 @@
                 class="iconfont icon-you"
                 style="color: #c11815; font-size: 18px; margin-right: 10px"
               ></span>
-              账户持仓
+              新股待上市
             </div>
-            <div class="table-search">
+            <!-- <div class="table-search">
               <el-row type="flex" justify="end">
                 <el-col :span="8">
                   <el-input
@@ -46,47 +46,13 @@
                   </el-input>
                 </el-col>
               </el-row>
-            </div>
+            </div> -->
             <el-table
               :data="list.list"
               show-summary
               :summary-method="getSummaries"
               style="width: 100%"
             >
-              <el-table-column type="expand">
-                <template slot-scope="scope">
-                  <el-form
-                    label-position="left"
-                    inline
-                    class="demo-table-expand"
-                  >
-                    <el-form-item label="手续费">
-                      <span>{{ scope.row.orderFee }}</span>
-                    </el-form-item>
-                    <el-form-item label="印花税">
-                      <span>{{ scope.row.orderSpread }}</span>
-                    </el-form-item>
-                    <el-form-item label="留仓费">
-                      <span>{{ scope.row.orderStayFee }}</span>
-                    </el-form-item>
-                    <el-form-item label="留仓天数">
-                      <span>{{ scope.row.orderStayDays }}</span>
-                    </el-form-item>
-                    <el-form-item
-                      v-if="scope.row.isLock === 1"
-                      label="锁定原因"
-                    >
-                      <span>{{ scope.row.lockMsg }}</span>
-                    </el-form-item>
-                    <el-form-item label="买入时间">
-                      <span>{{ scope.row.buyOrderTime | timeFormat }}</span>
-                    </el-form-item>
-                    <el-form-item label="点差费">
-                      <span>{{ scope.row.spreadRatePrice }}</span>
-                    </el-form-item>
-                  </el-form>
-                </template>
-              </el-table-column>
               <el-table-column
                 width="126px"
                 prop="stockName"
@@ -107,12 +73,8 @@
               <el-table-column prop="now_price" label="现价">
                 <template slot-scope="scope">
                   <span
-                    :class="
-                      scope.row.now_price - scope.row.buyOrderPrice > 0
-                        ? 'red'
-                        : 'green'
-                    "
-                    >{{ scope.row.now_price }}</span
+                    :class="'green'"
+                    >{{ scope.row.buyOrderPrice }}</span
                   >
                 </template>
               </el-table-column>
@@ -121,14 +83,7 @@
                   <span>{{ scope.row.buyOrderPrice }}</span>
                 </template>
               </el-table-column>
-              <el-table-column prop="profitAndLose" label="浮动盈亏">
-                <template slot-scope="scope">
-                  <span
-                    :class="scope.row.profitAndLose > 0 ? 'red' : 'green'"
-                    >{{ scope.row.profitAndLose }}</span
-                  >
-                </template>
-              </el-table-column>
+              
               <!-- <el-table-column prop="allProfitAndLose" label="总盈亏">
                 <template slot-scope="scope">
                   <span
@@ -159,6 +114,13 @@
               <el-table-column prop="orderNum" label="数量"> </el-table-column>
               <el-table-column prop="orderTotalPrice" label="总市值">
               </el-table-column>
+              <el-table-column prop="profitAndLose" label="时间" width="180">
+                <template slot-scope="scope">
+                  <span
+                    >{{ scope.row.buyOrderTime | timeFormat }}</span
+                  >
+                </template>
+              </el-table-column>
               <!-- <el-table-column
                 prop="orderFee"
                 label="手续费">
@@ -188,7 +150,7 @@
                 fixed="right"
                 prop="isLock"
                 width="100px"
-                label="卖出"
+                label="操作"
               >
                 <template slot-scope="scope" >
                   <!-- <el-button type="primary" plain size="small" @click="toDetail(scope.row)">查看详情</el-button> -->
@@ -197,25 +159,7 @@
                     style="cursor: pointer; z-index: 9999999"
                     plain
                     size="small"
-                    @click="
-                      sellitem = scope.row;
-                      pldialogVisible = true;
-                    " v-if="scope.row.auditStatus == 2"
-                    >卖出</el-button
-                  >
-                   <el-button
-                    type="success"
-                    style="cursor: pointer; z-index: 9999999"
-                    plain
-                    size="small" v-if="scope.row.auditStatus == 0"
-                    >已委托</el-button
-                  >
-                   <el-button
-                    type="success"
-                    style="cursor: pointer; z-index: 9999999"
-                    plain
-                    size="small" v-if="scope.row.auditStatus == 3"
-                    >已驳回</el-button
+                    >待上市</el-button
                   >
                 </template>
               </el-table-column>
@@ -285,14 +229,14 @@ export default {
   watch: {},
   computed: {},
   created() {
-    this.timer = setInterval(this.refreshList, 5000);
+    // this.timer = setInterval(this.refreshList, 5000);
   },
   beforeDestroy() {
-    clearInterval(this.timer);
+    // clearInterval(this.timer);
   },
   mounted() {
     this.getlist();
-    this.$store.state.userMenu = "2-2";
+    this.$store.state.userMenu = "2-16";
   },
   methods: {
     handleSizeChange(size) {
@@ -311,7 +255,7 @@ export default {
         stockSpell: this.stockSpell, // 简拼
         pageNum: this.pageNum,
         pageSize: this.pageSize,
-        orderStatus:1,
+        orderStatus:0,
       };
       let data = await api.getOrderList(opt);
       if (data.status === 0) {
@@ -337,7 +281,7 @@ export default {
         stockSpell: this.stockSpell, // 简拼
         pageNum: this.pageNum,
         pageSize: this.pageSize,
-        orderStatus:1,
+        orderStatus:0,
       };
       let data = await api.getOrderList(opts);
       this.refresh = false;

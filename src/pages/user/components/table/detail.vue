@@ -38,7 +38,10 @@
             <el-table-column
               prop="deSummary"
               label="描述">
-
+              <template slot-scope="scope">
+                <span>{{scope.row.deSummary | guolv}}</span>
+              </template>
+              
             </el-table-column>
             <el-table-column
               prop="addTime"
@@ -91,7 +94,11 @@
         }
       }
     },
-    watch: {},
+     filters:{
+    guolv(val){
+      return val.replace('递延费：0.00,', '');
+    }
+  },
     computed: {},
     created () {},
     mounted () {

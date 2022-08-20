@@ -1,7 +1,7 @@
 export default {
-  DOMAIN: 'https://www.mxkjdmx.vip',
+  DOMAIN: '/',
   // DOMAIN: 'http://localhost:8099',
-  baseURL: 'https://www.mxkjdmx.vip',
+  baseURL: '/',
   // baseURL: 'http://localhost:8099',
 
   util: {

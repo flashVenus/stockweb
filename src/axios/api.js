@@ -7,7 +7,10 @@ import { post, get } from './index'
 export function updateWithdrawPwd (options) {
   return post('/user/updateWithdrawPwd.do', options)
 }
-
+// 申购待缴费
+export function kouKuan (options) {
+  return post('/index.php/api/Lists/kouKuan', options)
+}
 // 港股单只股票行情数据
 export function getSingleStockGg (options) {
   return post('/api/stock/getSingleStock.do', options)

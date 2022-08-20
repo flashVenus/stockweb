@@ -10,7 +10,7 @@
       <router-link to="/user" tag="li">
         <el-menu-item index="2-1"><span class="iconfont icon-yuandianxiao"></span>账户资产</el-menu-item>
       </router-link>
-      <router-link to="/message" tag="li">
+      <router-link to="/message" tag="li" v-if="false">
         <el-menu-item index="2-13">
           <div class="el-badge item-mark"><span class="iconfont icon-yuandianxiao"></span>站内消息
             <!-- <sup class="el-badge__content el-badge__content--undefined is-fixed" style="position:absolute;transform: translateY(-50%) translateX(100%);top: 19px;left: 35px;right: auto;">
@@ -68,6 +68,9 @@
       </router-link> -->
        <router-link to="/xingu" tag="li">
         <el-menu-item index="2-14"><span class="iconfont icon-yuandianxiao"></span>新股申购</el-menu-item>
+      </router-link>
+      <router-link to="/Tobelisted" tag="li">
+        <el-menu-item index="2-16"><span class="iconfont icon-yuandianxiao"></span>新股待上市</el-menu-item>
       </router-link>
 
 

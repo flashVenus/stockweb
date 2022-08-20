@@ -32,6 +32,7 @@ import Register from '../pages/login/register' // 注册
 import Forget from '../pages/login/forget' // 忘记密码
 import Message from '../pages/user/components/table/message' // 站内消息
 import Xingu from '../pages/user/components/table/xingu' // 新股申购
+import Tobelisted from '../pages/user/components/table/Tobelisted' 
 
 //============================分仓配资-相关，2020年7月25日19:14:55=========================================
 import Funds from '../pages/funds/index' // 分仓配资
@@ -121,6 +122,11 @@ export default new Router({
       name: 'xingu',
       meta: { title: '新股申购' },
       component: Xingu
+    },{
+      path: '/Tobelisted',
+      name: 'Tobelisted',
+      meta: { title: '新股待上市' },
+      component: Tobelisted
     },{
       path: '/cashdetail',
       name: 'cashdetail',

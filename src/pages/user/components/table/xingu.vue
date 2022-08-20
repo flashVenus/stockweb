@@ -16,22 +16,22 @@
                   <el-table :data="shengou" style="width: 100%">
         
                     <el-table-column prop="names" label="新股名称">
-                      <template slot-scope="scope" v-if="scope.row.zt == 1">
+                      <template slot-scope="scope">
                         <span style="color: #fff">{{ scope.row.names }}</span>
                       </template>
                     </el-table-column>
                     <el-table-column prop="code" label="申购代码">
-                      <template slot-scope="scope" v-if="scope.row.zt == 1">
+                      <template slot-scope="scope">
                         <span style="color: #fff">{{ scope.row.code }}</span>
                       </template>
                     </el-table-column>
                     <el-table-column prop="price" label="发行价格">
-                      <template slot-scope="scope" v-if="scope.row.zt == 1">
+                      <template slot-scope="scope">
                         <span style="color: #fff">{{ scope.row.price }}</span>
                       </template>
                     </el-table-column>
                     <el-table-column prop="zt" width="80px" label="状态">
-                      <template slot-scope="scope" v-if="scope.row.zt == 1">
+                      <template slot-scope="scope">
                         <p class="bounceIn">
                           <span v-if="scope.row.zt == 0" class="red"
                             >已关闭</span
@@ -62,7 +62,7 @@
                   </el-table>
                 </div>
               </el-tab-pane>
-              <el-tab-pane label="申购列表" name="rengoulist">
+              <el-tab-pane label="已申购列表" name="rengoulist">
                 <div class="user-info">
                   <el-table :data="sgList" style="width: 100%">
                    
@@ -94,20 +94,99 @@
                   
                     <el-table-column prop="status" label="状态">
                       <template slot-scope="scope">
-                        <p class="bounceIn">
+                        <p class="bounceIn" >
                           <span v-if="scope.row.zts == 3" class="red"
-                            >未审核</span
+                            ></span
                           >
+                          <!-- 未审核 -->
                           <span v-if="scope.row.zts == 1" class="green"
                             >已中签</span
                           >
                           <span v-if="scope.row.zts == 2" class="red"
                             >未中签</span
                           >
+                           <span v-if="scope.row.zts == 4" class="red"
+                            >已中签</span
+                          >
                         </p>
                       </template>
                     </el-table-column>
                 
+                  </el-table>
+                </div>
+              </el-tab-pane>
+              <el-tab-pane label="待缴费" name="daijiao">
+                <div class="user-info">
+                  <el-table :data="jfList" style="width: 100%">
+        
+                    <el-table-column prop="names" label="新股名称">
+                      <template slot-scope="scope">
+                        <span style="color: #fff">{{ scope.row.xgname }}</span>
+                      </template>
+                    </el-table-column>
+                    <el-table-column prop="code" label="申购代码">
+                      <template slot-scope="scope">
+                        <span style="color: #fff">{{ scope.row.codes }}</span>
+                      </template>
+                    </el-table-column>
+                    <el-table-column prop="price" label="缴费金额">
+                      <template slot-scope="scope">
+                        <span style="color: #fff">{{ scope.row.bzj }}</span>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      fixed="right"
+                      prop="isLock"
+                      width="120px"
+                      label="操作"
+                    >
+                      <template slot-scope="scope">
+                        <el-button
+                          type="success"
+                          plain
+                          size="small"
+                          @click="getpay(scope.row)"
+                          >缴费</el-button
+                        >
+                      </template>
+                    </el-table-column>
+                  </el-table>
+                </div>
+              </el-tab-pane>
+              <el-tab-pane label="缴费记录" name="yijiao">
+                <div class="user-info">
+                  <el-table :data="jforderList" style="width: 100%">
+        
+                    <el-table-column prop="names" label="新股名称">
+                      <template slot-scope="scope">
+                        <span style="color: #fff">{{ scope.row.xgname }}</span>
+                      </template>
+                    </el-table-column>
+                    <el-table-column prop="code" label="申购代码">
+                      <template slot-scope="scope">
+                        <span style="color: #fff">{{ scope.row.codes }}</span>
+                      </template>
+                    </el-table-column>
+                    <el-table-column prop="price" label="缴费金额">
+                      <template slot-scope="scope">
+                        <span style="color: #fff">{{ scope.row.bzj }}</span>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      fixed="right"
+                      prop="isLock"
+                      width="120px"
+                      label="操作"
+                    >
+                      <template slot-scope="scope">
+                        <el-button
+                          type="success"
+                          plain
+                          size="small"
+                          >已缴费</el-button
+                        >
+                      </template>
+                    </el-table-column>
                   </el-table>
                 </div>
               </el-tab-pane>
@@ -185,13 +264,15 @@ export default {
         list: [],
       },
       activeName: "rengou",
-      shengou: "",
+      shengou: [],
       dialogCommunity:false,
       haoForm:{
         shehao:''
       },
       tijiao:'',
-      sgList:''
+      sgList:[],
+      jfList:[],
+      jforderList:[]
     };
   },
   computed: {},
@@ -206,10 +287,45 @@ export default {
       console.log(val);
       if (val == 'rengoulist') {
         this.shengouList()
+      }else if(val == 'daijiao'){
+        this.getjiaofeilist()
+      }else if(val == 'yijiao'){
+        this.getyijiaofeilist()
+      }else if(val == 'rengou'){
+        this.xxxx()
       }
     },
   },
   methods: {
+    async getyijiaofeilist() {
+      let opt = {
+        zts: 4,
+      };
+      let data = await api.xingusgsList(opt);
+      this.jforderList = data.data.list;
+    },
+     async getpay(item) {
+      let opt = {
+        lists_id: item.lists_id
+      };
+      let data = await api.kouKuan(opt);
+      if (data.status == 200) {
+         this.$message({
+          message:'缴费成功',
+          type: 'success'
+        });
+        this.getjiaofeilist()
+      } else {
+         this.$message.error('缴费失败');
+      }
+    },
+     async getjiaofeilist() {
+      let opt = {
+        zts: 1,
+      };
+      let data = await api.xingusgsList(opt);
+      this.jfList = data.data.list;
+    },
     shengouclik(row){
       this.dialogCommunity = true
       this.tijiao = row
@@ -233,9 +349,15 @@ export default {
     },
     async xxxx() {
       // 获取持仓列表
+      this.shengou = []
       let opt = {};
       let data = await api.xingusg(opt);
-      this.shengou = data.data.list;
+      var shengou = data.data.list;
+      for (let index = 0; index < shengou.length; index++) {
+        if (shengou[index].zt == 1) {
+          this.shengou.push(shengou[index]);
+        }
+      }
       console.log(this.shengou, "申购");
     },
     async shengData() {

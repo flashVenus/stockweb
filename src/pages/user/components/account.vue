@@ -46,7 +46,7 @@
 								<el-col :span="6">
 									<div class="box box1">
 										<i class="color3 iconfont icon-zijin1"></i>
-										<p class="title">持仓:</p>
+										<p class="title">股票持仓市值:</p>
 										<p :class="refresh ? 'number heartBeat' : 'number'">
 											￥{{ $store.state.hide ? '****' : $store.state.userInfo.allFreezAmt }}</p>
 									</div>
@@ -72,7 +72,7 @@
 								<el-col :span="6">
 									<div class="box box1">
 										<i class="color2 iconfont icon-keyongzijin"></i>
-										<p class="title">可用资金:</p>
+										<p class="title">可用余额（元）:</p>
 										<p class="number">￥{{ $store.state.hide ? '****' : $store.state.userInfo.enableAmt }}
 										</p>
 									</div>
@@ -224,7 +224,7 @@
 				</el-col>
 			</el-row>
 		</div>
-		<div class="info">
+		<div class="info" v-if="false">
 			<layout>
 				<div class="info_l" slot="left">
 					<div class="accicon iconfont icon-zhanghaoanquan"></div>
@@ -403,8 +403,8 @@ export default {
 			// var data2 = "期货账户：¥ " + this.$store.state.userInfo.userFuturesAmt;
 
 			var data = "余额"
-			var data1 = "持仓"
-			var data2 = "新股"
+			var data1 = "股票持仓市值"
+			var data2 = "新股市值"
 
 			// var alldata = '￥' + (Number(this.$store.state.userInfo.userAmt) + Number(this.$store.state.userInfo.userIndexAmt) +
 			// 	Number(this.$store.state.userInfo.userFuturesAmt)).toFixed(2)
@@ -442,10 +442,10 @@ export default {
 				},
 				graphic: {
 					type: "text",
-					left: "13%",
+					left: "7%",
 					top: "35%",
 					style: {
-						text: "账户总资产",
+						text: "人民币总资产(元)",
 						textAlign: "center",
 						fill: color,
 						fontSize: 18,
@@ -486,7 +486,7 @@ export default {
 						name: data1
 					},
 					{
-						value: (this.$store.state.userInfo.newStockWaitPay).toFixed(2),
+						value: (this.$store.state.userInfo.newStockPayed).toFixed(2),
 						name: data2
 					},
 					],
