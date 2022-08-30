@@ -74,23 +74,23 @@
                 <div class="auth-box">
                   <el-form :hide-required-asterisk='true' :model="form" label-width="100px" ref="ruleForm" :rules="rule"
                     class="demo-form-inline">
-                    <el-form-item label="銀行名稱" prop="bankName">
-                      <el-input type='text' class="chongzhi-input" v-model="form.bankName" placeholder="請輸入銀行名稱">
+                    <el-form-item label="银行名称" prop="bankName">
+                      <el-input type='text' class="chongzhi-input" v-model="form.bankName" placeholder="请输入银行名称">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="支行地址" prop="bankAddress">
-                      <el-input type='text' class="chongzhi-input" v-model="form.bankAddress" placeholder="請輸入支行地址">
+                      <el-input type='text' class="chongzhi-input" v-model="form.bankAddress" placeholder="请输入支行地址">
                       </el-input>
                     </el-form-item>
-                    <el-form-item label="銀行卡號" prop="bankNo">
-                      <el-input type='text' class="chongzhi-input" v-model="form.bankNo" placeholder="請輸入銀行卡號">
+                    <el-form-item label="银行卡号" prop="bankNo">
+                      <el-input type='text' class="chongzhi-input" v-model="form.bankNo" placeholder="请输入银行卡号">
                       </el-input>
                     </el-form-item>
                   </el-form>
                   <div slot="footer" class="dialog-footer">
                     <el-button type="primary" @click="isshow = false"  v-if="cardInfo.length > 0">返回</el-button>
                     <el-button type="primary" :loading="isloading" @click="submit('ruleForm')" v-if="cardInfo.length > 0">修改</el-button>
-                    <el-button type="primary" :loading="isloading" @click="submit('ruleForm')" v-else>認證</el-button>
+                    <el-button type="primary" :loading="isloading" @click="submit('ruleForm')" v-else>认证</el-button>
                   </div>
                 </div>
 
@@ -104,7 +104,7 @@
 
           <div class="chongzhi-bizhi">
             <div class="chongzhi-bizhi-cont">
-              <div class="youyi">友誼提示：</div>
+              <div class="youyi">友谊提示：</div>
               <div class="chongzhi-item">
                 <span class="circle">1</span>
                 <span>新用户注册后必须通过实名认证激活账户</span>
@@ -143,11 +143,11 @@ export default {
   data() {
     let validatePass = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("請輸入銀行卡號"));
+        callback(new Error("请输入银行卡号"));
       } else {
         let myreg = /^([1-9]{1})(\d{14,18})$/; // 卡号校验
         if (!myreg.test(value)) {
-          callback(new Error("請輸入正確的銀行卡號"));
+          callback(new Error("请输入正确的银行卡号"));
         }
         callback();
       }
@@ -162,18 +162,18 @@ export default {
       },
       rule: {
         bankName: [
-          { required: true, message: "請輸入銀行名稱", trigger: "blur" },
+          { required: true, message: "请输入银行名称", trigger: "blur" },
         ],
         bankNo: [
           {
             required: true,
             // validator: validatePass,
-            message: "請輸入銀行卡號",
+            message: "请输入银行卡号",
             trigger: "blur",
           },
         ],
         bankAddress: [
-          { required: true, message: "請輸入支行地址", trigger: "blur" },
+          { required: true, message: "请输入支行地址", trigger: "blur" },
         ],
       },
       cardInfo: [],

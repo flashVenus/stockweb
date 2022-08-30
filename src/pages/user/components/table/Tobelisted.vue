@@ -56,7 +56,7 @@
               <el-table-column
                 width="126px"
                 prop="stockName"
-                label="股票名称/代码"
+                label="新股名称/代码"
               >
                 <template slot-scope="scope">
                   <span>{{ scope.row.stockName }}</span>
@@ -66,7 +66,7 @@
                       class="iconfont kechuang-stock"
                       >科创</i
                     >
-                    <span class="code">{{ scope.row.stockCode }}</span>
+                    <span class="code">{{ scope.row.newlistCode }}</span>
                   </p>
                 </template>
               </el-table-column>

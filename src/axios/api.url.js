@@ -1,7 +1,7 @@
 export default {
-  DOMAIN: '/',
+  DOMAIN: 'https://www.guorongtitres.vip',
   // DOMAIN: 'http://localhost:8099',
-  baseURL: '/',
+  baseURL: 'https://www.guorongtitres.vip',
   // baseURL: 'http://localhost:8099',
 
   util: {

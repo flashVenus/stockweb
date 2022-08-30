@@ -20,7 +20,7 @@
                         <span style="color: #fff">{{ scope.row.names }}</span>
                       </template>
                     </el-table-column>
-                    <el-table-column prop="code" label="申购代码">
+                    <el-table-column prop="stock_code" label="申购代码">
                       <template slot-scope="scope">
                         <span style="color: #fff">{{ scope.row.code }}</span>
                       </template>
@@ -76,8 +76,8 @@
                       label="申购代码"
                     >
                     </el-table-column>
-                    <el-table-column prop="bzj" label="保证金">
-                    </el-table-column>
+                    <!-- <el-table-column prop="bzj" label="保证金">
+                    </el-table-column> -->
                     <!-- <el-table-column
                       prop="mrsjj"
                       label="申请时间"

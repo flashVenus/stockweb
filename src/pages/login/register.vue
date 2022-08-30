@@ -45,11 +45,11 @@
             </el-input>
           </el-form-item>
         </el-form>
-        <el-row class="buy-item text-left agree-box">
+        <!-- <el-row class="buy-item text-left agree-box">
           <el-checkbox class="check-box" v-model="agree" name="type"></el-checkbox>
           我已阅读并同意<a @click="agreeDialogVisible = true" href="javascript:;">《注册协议》</a>和<a
           @click="tradeDialogVisible = true" href="javascript:;">《{{siteInfo.tradeAgreeTitle}}》</a>
-        </el-row>
+        </el-row> -->
         <div slot="footer" class="dialog-footer">
           <el-button class="box-btn" type="primary" :loading="islogin" @click="submit('ruleForm')">注 册</el-button>
         </div>
@@ -254,9 +254,9 @@ import newFooter from '@/components/newFooter'
         // 提交
         this.$refs[formName].validate(async (valid) => {
           if (valid) {
-            if (!this.agree) {
-              this.$message.error('请先同意注册协议')
-            }
+            // if (!this.agree) {
+            //   this.$message.error('请先同意注册协议')
+            // }
             let opts = {
               // agentCode:'4023', // SR330001
               phone: this.form.phone,
